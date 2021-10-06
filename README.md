@@ -64,5 +64,8 @@ Tmux keybinds are default i believe.
 Check init.vim for keybinds.
 
 ## Todo
-add install script
+- [ ] add install script
+- [ ] fonts
+- [ ] custom scripts  
+
 
