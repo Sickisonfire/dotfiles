@@ -26,6 +26,7 @@ exec_always --no-startup-id feh --bg-fill $HOME/wallpapers/polyplanet.jpg
 # use picom for transparency
 exec_always --no-startup-id picom  & --config $HOME/.config/picom/picom.conf
 
+
 # use polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
@@ -54,6 +55,9 @@ bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+x kill
+
+# use flameshot for screenshots
+bindsym Print exec flameshot gui 
 
 # start dmenu (a program launcher)
 #bindsym $mod+o exec --no-startup-id dmenu_run
