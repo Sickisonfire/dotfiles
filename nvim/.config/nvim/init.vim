@@ -96,6 +96,9 @@ else
     Plug 'tpope/vim-fugitive'
     Plug 'mbbill/undotree'
     Plug 'arcticicestudio/nord-vim'
+    Plug 'iamcco/markdown-preview.nvim'
+    Plug 'tikhomirov/vim-glsl'
+    
     call plug#end()
 
     let g:onedark_terminal_italics = 1
