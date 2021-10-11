@@ -57,7 +57,7 @@ label-urgent-padding = 1
 [module/date]
 type = internal/date
 interval = 1.0
-date = %A, %d %B %I:%M %p
+date = %A, %d %B %H:%M 
 
 
 [module/title]
