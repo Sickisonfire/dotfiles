@@ -59,14 +59,31 @@ else
     nnoremap cN *``cgN
 
     nnoremap <leader>h :wincmd h<CR>
-    nnoremap <leader>j :wincmd j<CR>
-    nnoremap <leader>k :wincmd k<CR>
+    nnoremap <leader>j :wincmd j <bar> :resize 50<CR>
+    nnoremap <leader>k :wincmd k <bar> :resize 50<CR>
     nnoremap <leader>l :wincmd l<CR>
     nnoremap <leader>w :w <CR>
     nnoremap <leader>x :x <CR>
     nnoremap <leader>q :q <CR>
     nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep for > " )})<CR>
     nnoremap <C-p> <cmd>Telescope find_files<CR>
+
+    " linecomment script; also for blockcomments in v mode
+    function! ToggleLineComment()
+        let line = getline('.')
+        let firstChars = trim(line)[:1] 
+        if firstChars ==# "//"
+            execute "normal m`^xx``hh"
+        else
+            execute "normal m`^i//\<ESC>``ll"
+        endif
+    endfunction
+
+    vnoremap <leader>f :call ToggleLineComment() <CR>
+    nnoremap <leader>f :call ToggleLineComment() <CR>
+
+    nnoremap <leader>= :resize 50 <CR>
+    nnoremap <leader>- :resize 20 <CR>
 
     "source this file
     nnoremap <leader>so :source ~/.config/nvim/init.vim <CR>
