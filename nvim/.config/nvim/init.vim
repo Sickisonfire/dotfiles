@@ -21,6 +21,7 @@ else
     set scrolloff=8
     set noshowmode
     set completeopt=menuone,noinsert,noselect
+    set mouse=nv
 
     set noswapfile
     set nobackup
@@ -51,17 +52,14 @@ else
     " moving lines
     vnoremap J :m '>+1<CR>gv=gv
     vnoremap K :m '<-2<CR>gv=gv
-    nnoremap <leader>k :m .-2<CR>==
-    nnoremap <leader>j :m .+1<CR>==
+    "nnoremap <leader>k :m .-2<CR>==
+    "nnoremap <leader>j :m .+1<CR>==
 
     "replace word under cursor ( . to do it again)
     nnoremap cn *``cgn
     nnoremap cN *``cgN
 
-    nnoremap <leader>h :wincmd h<CR>
-    nnoremap <leader>j :wincmd j <bar> :resize 50<CR>
-    nnoremap <leader>k :wincmd k <bar> :resize 50<CR>
-    nnoremap <leader>l :wincmd l<CR>
+    nnoremap <leader>u :UndotreeToggle <CR>
     nnoremap <leader>w :w <CR>
     nnoremap <leader>x :x <CR>
     nnoremap <leader>q :q <CR>
@@ -79,12 +77,24 @@ else
         endif
     endfunction
 
+    nnoremap <leader>r <cmd>!cargo run <CR>
+
     vnoremap <leader>f :call ToggleLineComment() <CR>
     nnoremap <leader>f :call ToggleLineComment() <CR>
 
-    nnoremap <leader>= :resize 50 <CR>
-    nnoremap <leader>- :resize 20 <CR>
 
+    " window management
+    nnoremap <leader>h :wincmd h<CR>
+    nnoremap <leader>j :wincmd j <bar> :resize 50<CR>
+    nnoremap <leader>k :wincmd k <bar> :resize 50<CR>
+    nnoremap <leader>l :wincmd l<CR>
+    nnoremap <leader>nvs :vsplit <CR>
+    nnoremap <leader>ns :split <CR>
+    nnoremap <leader>= :resize +10 <CR>
+    nnoremap <leader>- :resize -10 <CR>
+    nnoremap <leader>. :vert resize +10 <CR>
+    nnoremap <leader>, :vert resize -10 <CR>
+    
     "source this file
     nnoremap <leader>so :source ~/.config/nvim/init.vim <CR>
 
