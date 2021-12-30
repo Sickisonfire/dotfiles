@@ -23,6 +23,9 @@ else
     set completeopt=menuone,noinsert,noselect
     set mouse=nv
 
+    let g:netrw_preview=1 
+    let g:netrw_banner=0 
+
     set noswapfile
     set nobackup
     set undodir=~/.vim/undodir
@@ -59,7 +62,10 @@ else
     nnoremap cn *``cgn
     nnoremap cN *``cgN
 
+    "select all
+    nnoremap <leader>a gg V G <CR>
     nnoremap <leader>u :UndotreeToggle <CR>
+    nnoremap <leader>e :Lexplore! 20<CR>  
     nnoremap <leader>w :w <CR>
     nnoremap <leader>x :x <CR>
     nnoremap <leader>q :q <CR>
@@ -97,6 +103,7 @@ else
     
     "source this file
     nnoremap <leader>so :source ~/.config/nvim/init.vim <CR>
+    nnoremap <leader>se :e ~/.config/nvim/init.vim <CR>
 
 
     " installs Plug if not yet done
