@@ -54,7 +54,7 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+Shift+x kill
+bindsym $mod+Shift+Return kill
 
 # use flameshot for screenshots
 bindsym Print exec flameshot gui 
@@ -177,6 +177,11 @@ mode "resize" {
         bindsym j resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
         bindsym l resize grow width 10 px or 10 ppt
+
+        bindsym Shift+h resize shrink width 2 px or 2 ppt
+        bindsym Shift+j resize grow height 2 px or 2 ppt
+        bindsym Shift+k resize shrink height 2 px or 2 ppt
+        bindsym Shift+l resize grow width 2 px or 2 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
