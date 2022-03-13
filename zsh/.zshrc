@@ -24,6 +24,7 @@ compinit
 export ZSH="$HOME/.oh-my-zsh"
 
 export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:/bin/nvim-linux64/bin"
 
 #Theme
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -62,7 +63,11 @@ export PATH="$(yarn global bin):$PATH"
 alias ws="cd ~/Workspace" 
 # use bat instead of cat 
 alias cat="bat"
+
 alias v="nvim"
+
+alias icat="kitty +kitten icat --place 50x50@0x150"
+
 
 
 
