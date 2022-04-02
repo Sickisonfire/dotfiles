@@ -73,20 +73,20 @@ else
     nnoremap <C-p> <cmd>Telescope find_files<CR>
 
     " linecomment script; also for blockcomments in v mode
-    function! ToggleLineComment()
-        let line = getline('.')
-        let firstChars = trim(line)[:1] 
-        if firstChars ==# "//"
-            execute "normal m`^xx``hh"
-        else
-            execute "normal m`^i//\<ESC>``ll"
-        endif
-    endfunction
+    " function! ToggleLineComment()
+    "     let line = getline('.')
+    "     let firstChars = trim(line)[:1] 
+    "     if firstChars ==# "//"
+    "         execute "normal m`^xx``hh"
+    "     else
+    "         execute "normal m`^i//\<ESC>``ll"
+    "     endif
+    " endfunction
+    " vnoremap <leader>f :call ToggleLineComment() <CR>
+    " nnoremap <leader>f :call ToggleLineComment() <CR>
 
     nnoremap <leader>r <cmd>!cargo run <CR>
 
-    vnoremap <leader>f :call ToggleLineComment() <CR>
-    nnoremap <leader>f :call ToggleLineComment() <CR>
 
 
     " window management
@@ -127,17 +127,26 @@ else
     Plug 'styled-components/vim-styled-components'
     Plug 'jparise/vim-graphql'
     Plug 'pantharshit00/vim-prisma'
+
     Plug 'tpope/vim-fugitive'
+
     Plug 'mbbill/undotree'
+
     Plug 'arcticicestudio/nord-vim'
+    Plug 'joshdick/onedark.vim'
+
     Plug 'iamcco/markdown-preview.nvim'
+
     Plug 'tikhomirov/vim-glsl'
+
+    Plug 'tpope/vim-commentary'
     
     call plug#end()
 
     let g:onedark_terminal_italics = 1
     colorscheme nord 
     hi Normal guibg=none
+
 
     " CoC settings
     " for larger tsx files
