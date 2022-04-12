@@ -69,6 +69,11 @@ else
     nnoremap <leader>w :w <CR>
     nnoremap <leader>x :x <CR>
     nnoremap <leader>q :q <CR>
+
+    "copy paste 
+    vnoremap <leader>c "+y<CR>
+    nnoremap <leader>v "+p<CR>
+
     nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep for > " )})<CR>
     nnoremap <C-p> <cmd>Telescope find_files<CR>
 
@@ -90,6 +95,8 @@ else
 
 
     " window management
+    nnoremap <leader>tn :tabnext<CR>
+    nnoremap <leader>tp :tabprevious<CR>
     nnoremap <leader>h :wincmd h<CR>
     nnoremap <leader>j :wincmd j <bar> :resize 50<CR>
     nnoremap <leader>k :wincmd k <bar> :resize 50<CR>
@@ -103,7 +110,9 @@ else
     
     "source this file
     nnoremap <leader>so :source ~/.config/nvim/init.vim <CR>
-    nnoremap <leader>se :e ~/.config/nvim/init.vim <CR>
+    nnoremap <leader>se :tabnew ~/.config/nvim/init.vim <CR>
+
+    "noremap <Leader>pp :lua require'telescope.builtin'.planets{}<CR>
 
 
     " installs Plug if not yet done
@@ -116,10 +125,13 @@ else
     " PLUGINS
     call plug#begin('~/.vim/plugged')
 
-    Plug 'joshdick/onedark.vim'
+
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+    Plug 'fannheyward/telescope-coc.nvim'
+
     Plug 'pangloss/vim-javascript'
     Plug 'leafgarland/typescript-vim'
     Plug 'MaxMEllon/vim-jsx-pretty'
@@ -142,6 +154,17 @@ else
     Plug 'tpope/vim-commentary'
     
     call plug#end()
+
+
+    lua << EOF
+    require('telescope').setup{
+        defaults = {
+        }
+    }
+
+    require('telescope').load_extension('fzf')
+    require('telescope').load_extension('coc')
+EOF
 
     let g:onedark_terminal_italics = 1
     colorscheme nord 
@@ -187,5 +210,6 @@ else
 
     inoremap <silent> <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"  
     inoremap <silent> <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"  
+    
 endif
 
