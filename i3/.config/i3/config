@@ -47,6 +47,13 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+exec --no-startup-id firefox
+assign [class="(?i)firefox"] 2
+
+exec --no-startup-id i3-msg 'workspace 1; exec kitty'
+exec --no-startup-id i3-msg 'workspace 9; exec kitty bashtop; workspace 1'
+exec --no-startup-id i3-msg 'workspace 9; exec kitty nvtop; workspace 1'
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
