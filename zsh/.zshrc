@@ -61,6 +61,9 @@ export PATH="$(yarn global bin):$PATH"
 
 # cd into workspace
 alias ws="cd ~/Workspace" 
+alias ..="cd .."
+alias ...="cd ../.."
+
 # use bat instead of cat 
 alias cat="bat"
 
