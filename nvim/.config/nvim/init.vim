@@ -57,6 +57,9 @@ else
     vnoremap K :m '<-2<CR>gv=gv
     "nnoremap <leader>k :m .-2<CR>==
     "nnoremap <leader>j :m .+1<CR>==
+    
+    "copy to clipboard
+    vnoremap <C-c> "+y
 
     "replace word under cursor ( . to do it again)
     nnoremap cn *``cgn
