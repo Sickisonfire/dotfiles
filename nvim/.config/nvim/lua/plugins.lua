@@ -59,7 +59,7 @@ require('packer').startup(function()
   use 'tpope/vim-fugitive'
   use 'mbbill/undotree'
   use 'tpope/vim-commentary'
-  use 'iamcco/markdown-preview.nvim'
+  use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview' }
   use 'andymass/vim-matchup'
   use 'arcticicestudio/nord-vim'
   use 'joshdick/onedark.vim'
@@ -67,4 +67,3 @@ require('packer').startup(function()
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
 end)
-
