@@ -61,7 +61,7 @@ Tmux keybinds are default i believe.
 |<kbd>prefix</kbd>+<kbd>h,j,k,l</kbd>| focus pane|
 
 ### nvim 
-Check init.vim for keybinds.
+Check mappings.lua & lsp.lua for mappings.
 
 ## Todo
 - [ ] add install script
