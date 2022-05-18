@@ -40,3 +40,8 @@ cmd('colorscheme nord')
 cmd('hi Normal guibg=none')
 
 cmd('au BufEnter *frag set filetype=glsl')
+
+g.coq_settings = {
+  auto_start = true,
+  ["display.pum.fast_close"] = false,
+}
