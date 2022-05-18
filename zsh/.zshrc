@@ -25,6 +25,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:/bin/nvim-linux64/bin"
+export PATH="$PATH:$HOME/.fly/bin"
 
 #Theme
 ZSH_THEME="powerlevel10k/powerlevel10k"
