@@ -21,25 +21,22 @@ o.incsearch = true
 o.termguicolors = true
 o.scrolloff = 8
 g.showmode = false
-g.completeopt = {"menuone","noinsert","noselect"}
+g.completeopt = { "menuone", "noinsert", "noselect" }
 o.mouse = "nv"
 o.swapfile = false
 o.backup = false
-o.undodir= HOME .. "/.vim/undodir"
+o.undodir = HOME .. "/.vim/undodir"
 o.undofile = true
 
 o.splitbelow = true
 o.splitright = true
 
-g.netrw_preview=1
-g.netrw_banner=0
+g.netrw_banner = false
+g.do_filetype_lua = true
 
-o.conceallevel= true
+o.conceallevel = true
 g.onedark_terminal_italics = true
 cmd('colorscheme nord')
 cmd('hi Normal guibg=none')
 
-g.coq_settings = {
-    auto_start = true,
-    ["display.pum.fast_close"] = false,
-}
+cmd('au BufEnter *frag set filetype=glsl')
