@@ -13,8 +13,8 @@ local on_attach = function(client)
 
   local keymap = vim.keymap
   keymap.set("n", "gr", "<cmd>Lspsaga rename<cr>", { silent = true, noremap = true })
-  keymap.set("n", "do", "<cmd>Lspsaga code_action<cr>", { silent = true, noremap = true })
-  keymap.set("x", "do", ":<c-u>Lspsaga range_code_action<cr>", { silent = true, noremap = true })
+  keymap.set("n", "ca", "<cmd>Lspsaga code_action<cr>", { silent = true, noremap = true })
+  keymap.set("x", "ca", ":<c-u>Lspsaga range_code_action<cr>", { silent = true, noremap = true })
   keymap.set("n", "K", "<cmd>Lspsaga hover_doc<cr>", { silent = true, noremap = true })
   keymap.set("n", "go", "<cmd>Lspsaga show_line_diagnostics<cr>", { silent = true, noremap = true })
   keymap.set("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", { silent = true, noremap = true })
@@ -39,6 +39,13 @@ local function setup_servers()
           }
         }
       }
+    end
+
+    if server == 'emmet_ls' then
+      cfg = {
+        filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
+      }
+
     end
 
     lspconfig[server].setup(coq.lsp_ensure_capabilities(vim.tbl_deep_extend('force',

@@ -43,6 +43,7 @@ keymap.set('n', '<leader>q', '<cmd>q<CR>', { noremap = true })
 
 -- Telescope
 keymap.set('n', '<leader>e', '<cmd>Telescope file_browser<CR>')
+keymap.set('n', '<leader>ce', '<cmd>Telescope file_browser path=%:p:h<CR>')
 keymap.set('n', '<leader><space>', '<cmd>Telescope buffers<CR>')
 keymap.set('n', '<leader>?', '<cmd>Telescope oldfiles<CR>')
 keymap.set('n', '<C-p>', '<cmd>Telescope find_files<CR>')

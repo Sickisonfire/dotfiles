@@ -38,7 +38,11 @@ o.conceallevel = true
 g.onedark_terminal_italics = true
 cmd('colorscheme nord')
 cmd('hi Normal guibg=none')
+cmd('hi SignColumn guibg=none')
+cmd('set laststatus=3')
+cmd('hi WinSeparator guifg=#0a0d11 guibg=none')
 
+--- lsp shader glsl
 cmd('au BufEnter *frag set filetype=glsl')
 
 g.coq_settings = {

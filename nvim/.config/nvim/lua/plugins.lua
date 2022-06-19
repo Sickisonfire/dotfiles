@@ -59,11 +59,15 @@ require('packer').startup(function()
   use 'tpope/vim-fugitive'
   use 'mbbill/undotree'
   use 'tpope/vim-commentary'
-  use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview' }
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  })
   use 'andymass/vim-matchup'
   use 'arcticicestudio/nord-vim'
   use 'joshdick/onedark.vim'
 
+  use "windwp/nvim-ts-autotag"
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
 end)
