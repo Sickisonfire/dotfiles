@@ -23,6 +23,7 @@ compinit
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:/bin/nvim-linux64/bin"
 export PATH="$PATH:$HOME/.fly/bin"
@@ -69,8 +70,17 @@ alias ...="cd ../.."
 alias cat="bat"
 
 alias v="nvim"
+alias g="nvim -c G"
 
 alias icat="kitty +kitten icat --place 50x50@0x150"
+
+# paste to paste.rs
+function paste() {
+              local file=${1:-/dev/stdin}
+              curl --data-binary @${file} https://paste.rs
+          }
+
+alias pasters=paste
 
 
 
