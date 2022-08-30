@@ -71,6 +71,7 @@ alias cat="bat"
 
 alias v="nvim"
 alias g="nvim -c G"
+alias d="nr dev"
 
 alias icat="kitty +kitten icat --place 50x50@0x150"
 
