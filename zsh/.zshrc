@@ -14,7 +14,6 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 unsetopt beep
-bindkey -v
 zstyle :compinstall filename "$HOME/.zshrc"
 
 autoload -Uz compinit
@@ -32,7 +31,7 @@ export PATH="$PATH:$HOME/.fly/bin"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 #Plugins
-plugins=(git)
+plugins=(git vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 

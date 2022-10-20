@@ -37,7 +37,7 @@ g.do_filetype_lua = true
 o.conceallevel = true
 g.onedark_terminal_italics = true
 cmd('colorscheme nord')
-cmd('hi Normal guibg=none')
+cmd('hi Normal guibg=NONE')
 cmd('hi SignColumn guibg=none')
 cmd('set laststatus=3')
 cmd('hi WinSeparator guifg=#0a0d11 guibg=none')
