@@ -47,7 +47,8 @@ keymap.set('n', '<leader>ce', '<cmd>Telescope file_browser path=%:p:h<CR>')
 keymap.set('n', '<leader><space>', '<cmd>Telescope buffers<CR>')
 keymap.set('n', '<leader>?', '<cmd>Telescope oldfiles<CR>')
 keymap.set('n', '<C-p>', '<cmd>Telescope find_files<CR>')
-keymap.set('n', '<leader>ps', function() require('telescope.builtin').grep_string({ search = vim.fn.input("Grep for > ") }) end)
+keymap.set('n', '<leader>ps',
+  function() require('telescope.builtin').grep_string({ search = vim.fn.input("Grep for > ") }) end)
 
 
 keymap.set('n', '<leader>tt', '<cmd>Lspsaga toggle_floaterm<CR>')
@@ -74,7 +75,20 @@ keymap.set('n', '<leader>.', '<cmd>vert resize +10<CR>')
 keymap.set('n', '<leader>,', '<cmd>vert resize -10<CR>')
 
 --    "source this file
+keymap.set('n', '<leader>soc', '<cmd>source %<CR>')
 keymap.set('n', '<leader>so', '<cmd>source $MYVIMRC<CR>')
 keymap.set('n', '<leader>se', '<cmd>tabnew $MYVIMRC<CR>')
 
 keymap.set('n', '<leader>ok', 'r<C-K>OK<CR>', { noremap = true })
+
+-- debugging DAP
+keymap.set('n', '<F5>', function() require 'dap'.continue() end)
+keymap.set('n', '<F10>', function() require 'dap'.step_over() end)
+keymap.set('n', '<F11>', function() require 'dap'.step_into() end)
+keymap.set('n', '<F12>', function() require 'dap'.step_out() end)
+keymap.set('n', '<leader>b', function() require 'dap'.toggle_breakpoint() end)
+keymap.set('n', '<leader>B', function() require 'dap'.set_breakpoint(vim.fn.input('Breakpoint Condition: ')) end)
+keymap.set('n', '<leader>lp', function() require 'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point Message: ')) end)
+keymap.set('n', '<leader>dr', function() require 'dap'.repl.toggle() end)
+keymap.set('n', '<leader>cb', function() require 'dap'.clear_breakpoints() end)
+keymap.set('n', '<leader>dui', function() require 'dapui'.toggle() end)

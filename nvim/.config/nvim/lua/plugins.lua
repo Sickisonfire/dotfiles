@@ -36,6 +36,21 @@ require('packer').startup(function()
       branch = "coq",
     }
   }
+
+  -- Debuging
+  use "mfussenegger/nvim-dap"
+  use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+  use "theHamsta/nvim-dap-virtual-text"
+  use "nvim-telescope/telescope-dap.nvim"
+
+  -- debuggers
+  use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
+  use {
+    "microsoft/vscode-js-debug",
+    opt = true,
+    run = "npm install --legacy-peer-deps && npm run compile"
+  }
+
   -- using coq for now
   --
   --use 'hrsh7th/nvim-cmp'
@@ -63,7 +78,7 @@ require('packer').startup(function()
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
   })
-  use 'andymass/vim-matchup'
+  --use 'andymass/vim-matchup'
   use 'arcticicestudio/nord-vim'
   use 'joshdick/onedark.vim'
 
