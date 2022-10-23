@@ -1,9 +1,22 @@
 local uv = vim.loop
 
-local sep = "/"
+local utils = {}
+
+function utils.clear_cmd_line()
+  vim.api.nvim_cmd({ cmd = 'echon', args = { '"\r\r"' } }, {})
+  vim.api.nvim_cmd({ cmd = 'echon', args = { '" "' } }, {})
+end
+
+function utils.get_sep()
+  if string.match(uv.os_uname().sysname, "win") then
+    return "\\"
+  else
+    return "/"
+  end
+end
 
 local function _path_is_absolute(path)
-  if vim.startswith(path, sep) then
+  if vim.startswith(path, utils.get_sep()) then
     return true
   else
     return false
@@ -11,7 +24,13 @@ local function _path_is_absolute(path)
 end
 
 local function _path_explode(path)
-  return vim.split(path, sep)
+  local parts = vim.split(path, utils.get_sep(), { trimempty = true })
+
+  if _path_is_absolute(path) then
+    table.insert(parts, 1, utils.get_sep())
+  end
+
+  return parts
 end
 
 local function _path_is_dir(path)
@@ -28,7 +47,14 @@ local function _path_is_dir(path)
 end
 
 local function _path_get_parent(parts)
-  return parts[#parts - 1]
+  local parent = ''
+  for i = 1, #parts - 1, 1 do
+    if i > 1 then
+      parent = parent .. utils.get_sep() .. parts[i]
+    end
+  end
+
+  return parent
 end
 
 local Path = {}
@@ -51,11 +77,31 @@ function Path:new(path_obj, path)
 end
 
 function Path:exists()
-  if uv.fs_stat(self.path) then
+  if uv.fs_access(self.path, 0) then
     return true
   else
     return false
   end
 end
 
-return Path
+function Path:create(opts)
+  opts = opts or {}
+
+  local filepath = self.path
+  if self:exists() then
+    error('ERROR: could not create file "' .. self.name .. '". File does already exist.')
+  else
+    local parent = Path:new(nil, self.parent)
+    if not parent:exists() then
+      vim.fn.mkdir(parent.path, "p")
+    end
+
+    vim.api.nvim_cmd({ cmd = 'e', args = { filepath } }, {})
+
+  end
+
+end
+
+utils.Path = Path
+
+return utils

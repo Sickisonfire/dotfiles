@@ -34,6 +34,8 @@ keymap.set('v', '<C-c>', '\"+y', { noremap = true })
 keymap.set('n', 'cn', '*``cgn', { noremap = true })
 keymap.set('n', 'cN', '*``cgN', { noremap = true })
 
+keymap.set('n', '<leader>nf', '<cmd>NewFile<CR>', { noremap = true })
+
 keymap.set('n', '<leader>a', 'ggVG<CR>', { noremap = true })
 keymap.set('n', '<leader>u', '<cmd>UndotreeToggle<CR>')
 --keymap.set('n', '<leader>e', '<cmd>Lexplore! 20<CR>')
