@@ -1,0 +1,20 @@
+extends javascript, html
+snippet rfc
+  interface I${1:NAME}Props
+  const ${1:NAME} = (props: I${1:NAME}Props) => {
+    return (
+    <HelloWorld/>
+    )
+  }
+  export default ${1:NAME}
+
+snippet rue
+  useEffect(()=> {
+
+  }, [])
+
+snippet rus
+  const [${1:state}, ${2:setState}] = useState(${3:null})
+
+snippet rmc
+  {${1}.map(item => <${2:COMP} key={item}/>)}

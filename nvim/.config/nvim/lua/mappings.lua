@@ -3,9 +3,10 @@ local keymap = vim.keymap
 vim.g.mapleader = " "
 
 --exit insert mode aka spam kj
-keymap.set('i', 'jj', '<ESC>')
-keymap.set('i', 'jk', '<ESC>')
-keymap.set('i', 'kj', '<ESC>')
+-- bad habit
+-- keymap.set('i', 'jj', '<ESC>')
+-- keymap.set('i', 'jk', '<ESC>')
+-- keymap.set('i', 'kj', '<ESC>')
 
 -- yank to eol
 keymap.set('n', 'Y', 'y$', { noremap = true })
@@ -14,6 +15,12 @@ keymap.set('n', 'Y', 'y$', { noremap = true })
 keymap.set('n', 'n', 'nzzzv', { noremap = true })
 keymap.set('n', 'N', 'Nzzzv', { noremap = true })
 keymap.set('n', 'J', 'mzJ`z', { noremap = true })
+
+-- keep things centered while moving
+keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true })
+keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true })
+keymap.set('n', 'n', 'nzz', { noremap = true })
+keymap.set('n', 'N', 'Nzz', { noremap = true })
 
 --" better undo
 keymap.set('i', ',', ',<C-g>u', { noremap = true })
