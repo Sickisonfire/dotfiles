@@ -27,6 +27,7 @@ o.swapfile = false
 o.backup = false
 o.undodir = HOME .. "/.vim/undodir"
 o.undofile = true
+o.cursorline = true
 
 o.splitbelow = true
 o.splitright = true
@@ -38,6 +39,8 @@ o.conceallevel = true
 g.onedark_terminal_italics = true
 cmd('colorscheme nord')
 cmd('hi Normal guibg=NONE')
+cmd('hi cursorline guibg=NONE')
+cmd('hi cursorlinenr guifg=white')
 cmd('hi SignColumn guibg=none')
 cmd('set laststatus=3')
 cmd('hi WinSeparator guifg=#0a0d11 guibg=none')
