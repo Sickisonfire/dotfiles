@@ -5,7 +5,7 @@ local coq = require 'coq'
 -- Add additional capabilities supported by nvim-cmp
 --local capabilities = vim.lsp.protocol.make_client_capabilities()
 --capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-
+require("lspsaga").setup({})
 require("lsp-format").setup {}
 
 local on_attach = function(client)
@@ -19,7 +19,7 @@ local on_attach = function(client)
   keymap.set("n", "go", "<cmd>Lspsaga show_line_diagnostics<cr>", { silent = true, noremap = true })
   keymap.set("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", { silent = true, noremap = true })
   keymap.set("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", { silent = true, noremap = true })
-  keymap.set("n", "gd", "<cmd>Lspsaga preview_definition<cr>", { silent = true, noremap = true })
+  keymap.set("n", "gd", "<cmd>Lspsaga goto_definition<cr>", { silent = true, noremap = true })
   keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<cr>", { silent = true, noremap = true })
   keymap.set("n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1, '<c-u>')<cr>", {})
   keymap.set("n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1, '<c-d>')<cr>", {})
@@ -58,9 +58,6 @@ local function setup_servers()
 end
 
 setup_servers()
-
-
-require('lspsaga').init_lsp_saga()
 
 require('coq_3p') {
   { src = "figlet", short_name = "BIG", trigger = "!big" },

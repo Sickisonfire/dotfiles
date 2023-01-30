@@ -17,9 +17,15 @@ require('packer').startup(function()
     { "neovim/nvim-lspconfig", }
   }
 
-  use 'tami5/lspsaga.nvim'
   use "lukas-reineke/lsp-format.nvim"
-
+  use({
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    config = function()
+      require("lspsaga").setup({})
+    end,
+    requires = { { "nvim-tree/nvim-web-devicons" } }
+  })
   use {
     "ms-jpq/coq_nvim",
     requires = {
