@@ -68,7 +68,8 @@ bindsym Print exec flameshot gui
 
 # start dmenu (a program launcher)
 #bindsym $mod+o exec --no-startup-id dmenu_run
-bindsym $mod+o exec --no-startup-id "rofi -no-lazy-grab -show drun -modi run,drun,window -theme $HOME/.config/rofi/i3_launcher/style"
+bindsym $mod+o exec --no-startup-id "rofi -no-lazy-grab -show drun -modi run,drun,window -theme $HOME/.config/rofi/config"
+bindsym $mod+slash exec --no-startup-id "rofi  -show websearch -modes websearch:$HOME/.dotfiles/scripts/websearch.sh -theme $HOME/.config/rofi/websearch-config"
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a

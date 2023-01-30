@@ -6,11 +6,12 @@ configuration {
     // true for buttons on bottom
     sidebar-mode: 					false;
     display-window: 				"";
-    display-windowcd: 				"";
-    display-run: 					"";
-    display-ssh: 					"";
+    display-windowcd: 			"";
+    display-run: 					  "";
+    display-ssh: 					  "";
     display-drun: 					"";
     display-combi: 					"";
+    display-websearch:      "🌐";
 }
 
 
@@ -36,17 +37,18 @@ window {
 prompt {
     font: "Menslo 20"; 
     text-color: var(blue);     
-    padding: 0 0 0 6px;
+    padding: 0 0 0 0px;
+    vertical-align: 0.5;
 }
 
 
 entry {
-    font: "Menslo bold 20"; 
+    font: "Menslo 20"; 
     text-color: var(fg);
     highlight: bold;
-}
-
-case-indicator {
+    placeholder: "search the web...";
+    placeholder-markup: "Menslo  20";
+    placeholder-color: #383c47;
 }
 
 mainbox {
@@ -54,14 +56,12 @@ mainbox {
 }
 
 inputbar {
-    spacing: 10px;
+    spacing: 20px;
     children: [prompt, entry ];
 }
 
 listview {
-    dynamic: true;
-    spacing: 8px;
-    lines: 5;
+  enabled: false;
 }
 
 element {
