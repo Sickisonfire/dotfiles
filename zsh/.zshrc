@@ -8,7 +8,7 @@ fi
 # make it stop 
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
-typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='🌑'
+typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='🦉'
 
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -82,6 +82,5 @@ function paste() {
 
 alias pasters=paste
 
-
-
-
+# opam configuration
+[[ ! -r /home/marcel/.opam/opam-init/init.zsh ]] || source /home/marcel/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
