@@ -21,7 +21,7 @@ set $mod Mod4
 font pango:Source Code Pro 10
 
 # load bg
-exec_always --no-startup-id feh --bg-fill $HOME/wallpapers/polyplanet.jpg
+exec_always --no-startup-id feh --bg-fill $HOME/wallpapers/torii.jpg
 
 # use picom for transparency
 exec_always --no-startup-id picom  & --config $HOME/.config/picom/picom.conf
