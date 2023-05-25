@@ -5,7 +5,7 @@ local coq = require 'coq'
 -- Add additional capabilities supported by nvim-cmp
 --local capabilities = vim.lsp.protocol.make_client_capabilities()
 --capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-require("lspsaga").setup({})
+require("lspsaga").setup()
 require("lsp-format").setup {}
 
 local on_attach = function(client)
@@ -21,8 +21,8 @@ local on_attach = function(client)
   keymap.set("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", { silent = true, noremap = true })
   keymap.set("n", "gd", "<cmd>Lspsaga goto_definition<cr>", { silent = true, noremap = true })
   keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<cr>", { silent = true, noremap = true })
-  keymap.set("n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1, '<c-u>')<cr>", {})
-  keymap.set("n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1, '<c-d>')<cr>", {})
+  -- keymap.set("n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1, '<c-u>')<cr>", {})
+  -- keymap.set("n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1, '<c-d>')<cr>", {})
 end
 -- LSP
 local function setup_servers()
@@ -63,70 +63,4 @@ require('coq_3p') {
   { src = "figlet", short_name = "BIG", trigger = "!big" },
 }
 
--- testing coq atm
---local cmp = require('cmp')
---local luasnip = require('luasnip')
 
----- CMP SETUP
---cmp.setup {
---  snippet = {
---    expand = function(args)
---      luasnip.lsp_expand(args.body)
---    end,
---  },
---  mapping = cmp.mapping.preset.insert({
---    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
---    ['<C-f>'] = cmp.mapping.scroll_docs(4),
---    ['<C-Space>'] = cmp.mapping.complete(),
---    ['<CR>'] = cmp.mapping.confirm {
---      behavior = cmp.ConfirmBehavior.Replace,
---      select = true,
---    },
---    ['<Tab>'] = cmp.mapping(function(fallback)
---      if cmp.visible() then
---        cmp.select_next_item()
---      elseif luasnip.expand_or_jumpable() then
---        luasnip.expand_or_jump()
---      else
---        fallback()
---      end
---    end, { 'i', 's' }),
---    ['<S-Tab>'] = cmp.mapping(function(fallback)
---      if cmp.visible() then
---        cmp.select_prev_item()
---      elseif luasnip.jumpable(-1) then
---        luasnip.jump(-1)
---      else
---        fallback()
---      end
---    end, { 'i', 's' }),
---  }),
---  sources = {
---    --{ name = 'cmp_tabnine' },
---    { name = 'nvim_lsp' },
---    { name = 'luasnip' },
---    { name = 'buffer' },
---  },
---}
-
-
--- local tabnine = require('cmp_tabnine.config')
--- tabnine:setup({
---     max_lines = 1000;
---     max_num_results = 20;
---     sort = true;
---     run_on_every_keystroke = true;
---     snippet_placeholder = '..';
---     ignored_file_types = { -- default is not to ignore
---     -- uncomment to ignore in lua:
---     -- lua = true
---     };
---     show_prediction_strength = false;
--- })
-
----- load snippets
---require("luasnip.loaders.from_vscode").lazy_load({
---    --paths ={'~/.local/share/nvim/site/pack/packer/start/friendly-snippets/'},
---    include = nil,
---    exclude = {}
---})
