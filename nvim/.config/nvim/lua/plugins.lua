@@ -2,8 +2,13 @@ vim.cmd [[packadd packer.nvim]]
 
 require('packer').startup(function()
   use 'wbthomason/packer.nvim'
-
-
+  use 'ellisonleao/gruvbox.nvim' 
+  use {
+    'NvChad/nvim-colorizer.lua',
+    config = function()
+      require 'colorizer'.setup()
+    end
+  }
   use 'nvim-lua/plenary.nvim'
   use 'nvim-lua/popup.nvim'
   use 'nvim-telescope/telescope.nvim'
@@ -51,41 +56,12 @@ require('packer').startup(function()
   -- debuggers
   use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
   use {
-    "microsoft/vscode-js-debug",
-    opt = true,
-    run = "npm install --legacy-peer-deps && npm run compile"
-  }
-  use {
     "folke/trouble.nvim",
     requires = "nvim-tree/nvim-web-devicons",
     config = function()
-      require("trouble").setup {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      }
+      require("trouble").setup {} 
     end
   }
-  -- using coq for now
-  --
-  --use 'hrsh7th/nvim-cmp'
-  --use 'saadparwaiz1/cmp_luasnip'
-  --use 'hrsh7th/cmp-nvim-lsp'
-  --use { 'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp' }
-  --use 'L3MON4D3/LuaSnip'
-  --use 'rafamadriz/friendly-snippets'
-
-  -- using treesitter for now
-  --
-  --use 'pangloss/vim-javascript'
-  --use 'leafgarland/typescript-vim'
-  --use 'MaxMEllon/vim-jsx-pretty'
-  --use 'peitalin/vim-jsx-typescript'
-  --use 'styled-components/vim-styled-components'
-  --use 'jparise/vim-graphql'
-  --use 'pantharshit00/vim-prisma'
-  --use 'tikhomirov/vim-glsl'
-
   use 'tpope/vim-fugitive'
   use 'mbbill/undotree'
   use 'tpope/vim-commentary'
@@ -93,11 +69,10 @@ require('packer').startup(function()
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
   })
-  --use 'andymass/vim-matchup'
   use 'arcticicestudio/nord-vim'
-  use 'joshdick/onedark.vim'
 
   use "windwp/nvim-ts-autotag"
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
 end)
+
