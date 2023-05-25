@@ -37,13 +37,17 @@ g.do_filetype_lua = true
 
 o.conceallevel = true
 g.onedark_terminal_italics = true
-cmd('colorscheme nord')
+cmd('colorscheme gruvbox')
 cmd('hi Normal guibg=NONE')
 cmd('hi cursorline guibg=NONE')
-cmd('hi cursorlinenr guifg=white')
+cmd('hi cursorlinenr guifg=yellow guibg=none')
 cmd('hi SignColumn guibg=none')
 cmd('set laststatus=3')
-cmd('hi WinSeparator guifg=#0a0d11 guibg=none')
+cmd('set scl=yes')
+cmd('hi WinSeparator guifg=#212922 guibg=none')
+cmd('hi statusline gui=none guifg=yellow guibg=#212922')
+cmd('hi winbar guibg=none')
+cmd('hi winbarnc guibg=none')
 
 --- lsp shader glsl
 cmd('au BufEnter *frag set filetype=glsl')
