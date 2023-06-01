@@ -53,6 +53,6 @@ cmd('hi winbarnc guibg=none')
 cmd('au BufEnter *frag set filetype=glsl')
 
 g.coq_settings = {
-  auto_start = true,
+  auto_start = 'shut-up',
   ["display.pum.fast_close"] = false,
 }
