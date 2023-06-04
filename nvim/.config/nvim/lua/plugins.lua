@@ -3,12 +3,9 @@ vim.cmd [[packadd packer.nvim]]
 require('packer').startup(function()
   use 'wbthomason/packer.nvim'
   use 'ellisonleao/gruvbox.nvim' 
-  use {
-    'NvChad/nvim-colorizer.lua',
-    config = function()
-      require 'colorizer'.setup()
-    end
-  }
+
+  use 'NvChad/nvim-colorizer.lua'
+  
   use 'nvim-lua/plenary.nvim'
   use 'nvim-lua/popup.nvim'
   use 'nvim-telescope/telescope.nvim'
