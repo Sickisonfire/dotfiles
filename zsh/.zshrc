@@ -8,8 +8,6 @@ fi
 # make it stop 
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
-typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='🦉'
-
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
@@ -24,7 +22,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 
 export PATH="$PATH:$HOME/bin"
-export PATH="$PATH:/bin/nvim-linux64/bin"
+export PATH="$PATH:/usr/bin/nvim"
 export PATH="$PATH:$HOME/.fly/bin"
 
 #Theme
