@@ -16,9 +16,9 @@ configuration {
 
 
 * {
-  bg: #181A20;
-  blue: #44609D;
-  fg: #d3d3d3;
+  bg: #182119;
+  blue: #42884F;
+  fg: #eeffff;
   background-color: var(bg);
   text-color: white;
 }
@@ -48,7 +48,7 @@ entry {
     highlight: bold;
     placeholder: "search the web...";
     placeholder-markup: "Menslo  20";
-    placeholder-color: #383c47;
+    placeholder-color: #24352a;
 }
 
 mainbox {
