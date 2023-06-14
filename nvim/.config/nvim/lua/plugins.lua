@@ -4,6 +4,13 @@ require('packer').startup(function()
   use 'wbthomason/packer.nvim'
   use 'ellisonleao/gruvbox.nvim' 
 
+  use {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+    run = ":MasonUpdate" 
+  }
+
   use 'NvChad/nvim-colorizer.lua'
   
   use 'nvim-lua/plenary.nvim'
@@ -14,20 +21,7 @@ require('packer').startup(function()
   use { "nvim-telescope/telescope-file-browser.nvim" }
 
   -- LSP
-  use {
-    "williamboman/nvim-lsp-installer",
-    { "neovim/nvim-lspconfig", }
-  }
 
-  use "lukas-reineke/lsp-format.nvim"
-  use({
-    "glepnir/lspsaga.nvim",
-    branch = "main",
-    config = function()
-      require("lspsaga").setup({})
-    end,
-    requires = { { "nvim-tree/nvim-web-devicons" } }
-  })
   use {
     "ms-jpq/coq_nvim",
     requires = {

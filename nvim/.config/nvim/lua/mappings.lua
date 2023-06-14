@@ -60,8 +60,8 @@ keymap.set('n', '<leader>ps',
   function() require('telescope.builtin').grep_string({ search = vim.fn.input("Grep for > ") }) end)
 
 
-keymap.set('n', '<leader>tt', '<cmd>Lspsaga term_toggle<CR>')
-keymap.set('t', '<leader>tt', '<C-\\><C-n><cmd>Lspsaga term_toggle<CR>')
+-- keymap.set('n', '<leader>tt', '<cmd>Lspsaga term_toggle<CR>')
+-- keymap.set('t', '<leader>tt', '<C-\\><C-n><cmd>Lspsaga term_toggle<CR>')
 keymap.set('t', '<leader>tt', '<C-\\><C-n><CR>')
 
 --"copy paste

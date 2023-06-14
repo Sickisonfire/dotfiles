@@ -1,66 +1,69 @@
-local lsp_installer = require 'nvim-lsp-installer'
-local lspconfig = require 'lspconfig'
-local coq = require 'coq'
+require 'mason'.setup()
+require 'mason-lspconfig'.setup()
 
--- Add additional capabilities supported by nvim-cmp
---local capabilities = vim.lsp.protocol.make_client_capabilities()
---capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-require("lspsaga").setup()
-require("lsp-format").setup {}
 
-local on_attach = function(client)
-  require('lsp-format').on_attach(client)
+require 'lspconfig'.lua_ls.setup({
+  settings = {
+    Lua = {
+      runtime = {
+        version = 'LuaJIT',
+      },
+      diagnostics = {
+        globals = {
+          'vim',
+        },
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+    },
+  },
+})
 
-  local keymap = vim.keymap
-  keymap.set("n", "gr", "<cmd>Lspsaga rename<cr>", { silent = true, noremap = true })
-  keymap.set("n", "do", "<cmd>Lspsaga code_action<cr>", { silent = true, noremap = true })
-  keymap.set("x", "do", ":<c-u>Lspsaga range_code_action<cr>", { silent = true, noremap = true })
-  keymap.set("n", "K", "<cmd>Lspsaga hover_doc<cr>", { silent = true, noremap = true })
-  keymap.set("n", "go", "<cmd>Lspsaga show_line_diagnostics<cr>", { silent = true, noremap = true })
-  keymap.set("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", { silent = true, noremap = true })
-  keymap.set("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", { silent = true, noremap = true })
-  keymap.set("n", "gd", "<cmd>Lspsaga goto_definition<cr>", { silent = true, noremap = true })
-  keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<cr>", { silent = true, noremap = true })
-  -- keymap.set("n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1, '<c-u>')<cr>", {})
-  -- keymap.set("n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1, '<c-d>')<cr>", {})
-end
--- LSP
-local function setup_servers()
-  lsp_installer.setup()
-  local servers = require('nvim-lsp-installer.servers').get_installed_server_names()
-  for _, server in pairs(servers) do
-    local cfg = {}
+require 'lspconfig'.rust_analyzer.setup({})
 
-    if server == 'sumneko_lua' then
-      cfg = {
-        settings = {
-          Lua = {
-            diagnostics = { globals = { 'vim', 'use' } }
-          }
-        }
-      }
-    end
+vim.keymap.set('n', 'go', vim.diagnostic.open_float)
+vim.keymap.set('n', 'gk', vim.diagnostic.goto_prev)
+vim.keymap.set('n', 'gj', vim.diagnostic.goto_next)
+vim.keymap.set('n', 'gq', vim.diagnostic.setloclist)
 
-    if server == 'emmet_ls' then
-      cfg = {
-        filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
-      }
+-- Use LspAttach autocommand to only map the following keys
+-- after the language server attaches to the current buffer
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    -- Buffer local mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    local opts = { buffer = ev.buf }
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
+    vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
+    vim.keymap.set('n', '<leader>wl', function()
+      print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    end, opts)
+    vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
+    -- vim.keymap.set('n', 'gr', vim.lsp.buf.rename, opts)
+    vim.keymap.set({ 'n', 'v' }, 'do', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', 'gh', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', '<leader>f', function()
+      vim.lsp.buf.format { async = true }
+    end, opts)
+  end,
+})
 
-    end
-
-    lspconfig[server].setup(coq.lsp_ensure_capabilities(vim.tbl_deep_extend('force',
-      {
-        --capabilities = capabilities,
-        on_attach = on_attach
-
-      }, cfg or {})))
+vim.api.nvim_create_autocmd('BufWrite', {
+  group = vim.api.nvim_create_augroup("UserLspConfig", {
+    clear = false
+  }),
+  callback = function()
+    vim.lsp.buf.format { async = true }
   end
-end
-
-setup_servers()
+})
 
 require('coq_3p') {
   { src = "figlet", short_name = "BIG", trigger = "!big" },
 }
-
-
