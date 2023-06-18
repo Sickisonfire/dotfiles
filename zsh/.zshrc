@@ -23,6 +23,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:/usr/bin/nvim"
+export PATH="$PATH:$HOME/.zig/bin"
 export PATH="$PATH:$HOME/.fly/bin"
 
 #Theme
