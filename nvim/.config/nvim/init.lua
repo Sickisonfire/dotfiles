@@ -7,4 +7,3 @@ require('telescope-config')
 require('dap-config')
 require('new-file')
 require('mappings')
-

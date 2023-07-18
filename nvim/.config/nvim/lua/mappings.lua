@@ -37,6 +37,11 @@ keymap.set('v', 'K', ':m \'>-2<CR>gv=gv', { noremap = true })
 --"copy to clipboard
 keymap.set('v', '<C-c>', '\"+y', { noremap = true })
 
+-- qflist next/prev
+keymap.set('n', 'gn', '<cmd>cn<CR>', { noremap = true })
+keymap.set('n', 'gN', '<cmd>cN<CR>', { noremap = true })
+
+
 --"replace word under cursor ( . to do it again)
 keymap.set('n', 'cn', '*``cgn', { noremap = true })
 keymap.set('n', 'cN', '*``cgN', { noremap = true })
