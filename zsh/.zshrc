@@ -71,7 +71,7 @@ alias v="nvim"
 alias g="nvim -c G"
 alias d="nr dev"
 
-alias icat="kitty +kitten icat --place 50x50@0x150"
+alias icat="kitty +kitten icat --align right"
 
 # color config for ls 
 
