@@ -67,5 +67,6 @@ Check mappings.lua & lsp.lua for mappings.
 - [ ] add install script
 - [ ] fonts
 - [ ] custom scripts  
+- [ ] add redshift.conf
 
 
