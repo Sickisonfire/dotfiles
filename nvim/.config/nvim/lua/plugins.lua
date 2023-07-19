@@ -2,17 +2,18 @@ vim.cmd [[packadd packer.nvim]]
 
 require('packer').startup(function()
   use 'wbthomason/packer.nvim'
-  use 'ellisonleao/gruvbox.nvim' 
+  use 'ellisonleao/gruvbox.nvim'
+  use 'nvim-treesitter/nvim-treesitter-context'
 
   use {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
-    run = ":MasonUpdate" 
+    run = ":MasonUpdate"
   }
 
   use 'NvChad/nvim-colorizer.lua'
-  
+
   use 'nvim-lua/plenary.nvim'
   use 'nvim-lua/popup.nvim'
   use 'nvim-telescope/telescope.nvim'
@@ -26,7 +27,8 @@ require('packer').startup(function()
     "ms-jpq/coq_nvim",
     requires = {
       { "ms-jpq/coq.artifacts", branch = "artifacts" },
-      { "ms-jpq/coq.thirdparty",
+      {
+        "ms-jpq/coq.thirdparty",
         branch = "3p",
       },
       {
@@ -49,13 +51,13 @@ require('packer').startup(function()
   use {
     "microsoft/vscode-js-debug",
     opt = true,
-    run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out" 
+    run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
   }
   use {
     "folke/trouble.nvim",
     requires = "nvim-tree/nvim-web-devicons",
     config = function()
-      require("trouble").setup {} 
+      require("trouble").setup {}
     end
   }
   use 'tpope/vim-fugitive'
@@ -69,6 +71,4 @@ require('packer').startup(function()
 
   use "windwp/nvim-ts-autotag"
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-
 end)
-

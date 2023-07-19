@@ -34,7 +34,6 @@ local function _path_explode(path)
 end
 
 local function _path_is_dir(path)
-
   local stat = uv.fs_stat(path)
   if not stat then
     return false
@@ -97,9 +96,7 @@ function Path:create(opts)
     end
 
     vim.api.nvim_cmd({ cmd = 'e', args = { filepath } }, {})
-
   end
-
 end
 
 utils.Path = Path
