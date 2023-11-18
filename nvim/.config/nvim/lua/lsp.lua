@@ -111,5 +111,3 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 require('coq_3p') {
   { src = "figlet", short_name = "BIG", trigger = "!big" },
 }
-
-print("lsp config reloaded")

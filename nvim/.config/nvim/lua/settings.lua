@@ -10,8 +10,9 @@ o.softtabstop = 2
 o.shiftwidth = 2
 o.expandtab = true
 o.smartindent = true
+o.tw = 80
 o.nu = false
-o.relativenumber = false
+o.relativenumber = true
 o.hidden = true
 o.errorbells = false
 o.hlsearch = false
@@ -36,18 +37,12 @@ g.netrw_banner = false
 g.do_filetype_lua = true
 
 o.conceallevel = true
-g.onedark_terminal_italics = true
-cmd('colorscheme gruvbox')
+cmd('colorscheme darkforest')
 cmd('hi Normal guibg=NONE')
 cmd('hi cursorline guibg=NONE')
-cmd('hi cursorlinenr guifg=yellow guibg=none')
 cmd('hi SignColumn guibg=none')
 cmd('set laststatus=3')
 cmd('set scl=yes')
-cmd('hi WinSeparator guifg=#212922 guibg=none')
-cmd('hi statusline gui=none guifg=yellow guibg=#212922')
-cmd('hi winbar guibg=none')
-cmd('hi winbarnc guibg=none')
 
 --- lsp shader glsl
 cmd('au BufEnter *frag set filetype=glsl')
