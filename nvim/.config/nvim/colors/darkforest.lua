@@ -29,6 +29,7 @@ local palette = {
   ["blue"] = "#85B6E2",
   ["grey"] = "#5F6A5D",
   ["grey-dark"] = "#2E3426",
+  ["grey-light"] = "#7E9EA0",
   ["black"] = "#0E0F0E",
   ["cyan"] = "#B0CB9A",
   ["cyan-dark"] = "#6B895D",
@@ -39,7 +40,7 @@ local NONE = "NONE"
 set_hl("Normal", { fg = palette["white"], bg = palette["bg"] })
 set_hl("Visual", { bg = palette["grey-dark"] })
 set_hl("VisualNOS", { bg = palette["green"] })
-set_hl("Comment", { fg = "#7E9EA0", bg = NONE, italic = true })
+set_hl("Comment", { fg = palette["grey-light"], bg = NONE, italic = true })
 set_hl("Constant", { fg = palette["orange"], bg = NONE })
 set_hl("Character", { fg = palette["yellow"], bg = NONE })
 set_hl("String", { fg = palette["yellow"], bg = NONE })
@@ -70,6 +71,35 @@ link("PreCondit", "PreProc")
 link("SpecialChar", "Special")
 link("Tag", "Special")
 link("Debug", "Special")
+
+set_hl("DiagnosticError", { fg = palette["red"], bg = NONE })
+set_hl("DiagnosticWarn", { fg = palette["yellow"], bg = NONE })
+set_hl("DiagnosticInfo", { fg = palette["blue"], bg = NONE })
+set_hl("DiagnosticHint", { fg = palette["grey-light"], bg = NONE })
+set_hl("DiagnosticOk", { fg = palette["green"], bg = NONE })
+set_hl("DiagnosticUnderlineError", { fg = palette["red"], bg = NONE, underline = true })
+set_hl("DiagnosticUnderlineWarn", { fg = palette["yellow"], bg = NONE, underline = true })
+set_hl("DiagnosticUnderlineInfo", { fg = palette["blue"], bg = NONE, underline = true })
+set_hl("DiagnosticUnderlineHint", { fg = palette["grey-light"], bg = NONE, underline = true })
+set_hl("DiagnosticUnderlineOk", { fg = palette["green"], bg = NONE, underline = true })
+set_hl("DiagnosticDeprecated", { sp = palette["red"], strikethrough = true })
+
+link("DiagnosticVirtualTextError", "DiagnosticError")
+link("DiagnosticVirtualTextWarn", "DiagnosticWarn")
+link("DiagnosticVirtualTextInfo", "DiagnosticInfo")
+link("DiagnosticVirtualTextHint", "DiagnosticHint")
+link("DiagnosticVirtualTextOk", "DiagnosticOk")
+link("DiagnosticFloatingError", "DiagnosticError")
+link("DiagnosticFloatingWarn", "DiagnosticWarn")
+link("DiagnosticFloatingInfo", "DiagnosticInfo")
+link("DiagnosticFloatingHint", "DiagnosticHint")
+link("DiagnosticFloatingOk", "DiagnosticOk")
+link("DiagnosticSignError", "DiagnosticError")
+link("DiagnosticSignWarn", "DiagnosticWarn")
+link("DiagnosticSignInfo", "DiagnosticInfo")
+link("DiagnosticSignHint", "DiagnosticHint")
+link("DiagnosticSignOk", "DiagnosticOk")
+link("DiagnosticUnnecessary", "Comment")
 
 
 set_hl("Ignore", { fg = palette["black"], bg = palette["grey"] })
