@@ -1,42 +1,82 @@
 require 'mason'.setup()
-require 'mason-lspconfig'.setup()
 
-
-require 'lspconfig'.lua_ls.setup({
-  settings = {
-    Lua = {
-      runtime = {
-        version = 'LuaJIT',
+local handlers = {
+  -- default/catch all
+  function(server_name)
+    require("lspconfig")[server_name].setup {}
+  end,
+  ["eslint"] = function()
+    require 'lspconfig'.eslint.setup({
+      on_attach = function(_, bufnr)
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          buffer = bufnr,
+          command = "EslintFixAll",
+        })
+      end,
+      filetypes = {
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "vue",
+        "html",
+        "markdown",
+        "json",
+        "jsonc",
+        "yaml",
+        "astro"
       },
-      diagnostics = {
-        globals = {
-          'vim',
+      settings = {
+        format = true,
+        experimental = { useFlatConfig = true },
+        rulesCustomizations = {
+          { ["rule"] = "style/*",   ["severity"] = "off" },
+          { ["rule"] = "*-indent",  ["severity"] = "off" },
+          { ["rule"] = "*-spacing", ["severity"] = "off" },
+          { ["rule"] = "*-spaces",  ["severity"] = "off" },
+          { ["rule"] = "*-order",   ["severity"] = "off" },
+          { ["rule"] = "*-dangle",  ["severity"] = "off" },
+          { ["rule"] = "*-newline", ["severity"] = "off" },
+          { ["rule"] = "*quotes",   ["severity"] = "off" },
+          { ["rule"] = "*semi",     ["severity"] = "off" }
+        },
+      }
+    })
+  end,
+  ["lua_ls"] = function()
+    require 'lspconfig'.lua_ls.setup({
+      settings = {
+        Lua = {
+          runtime = {
+            version = 'LuaJIT',
+          },
+          diagnostics = {
+            globals = {
+              'vim',
+            },
+          },
+          workspace = {
+            library = vim.api.nvim_get_runtime_file("", true),
+          },
         },
       },
-      workspace = {
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-    },
-  },
-})
+    })
+  end
+}
 
-require 'lspconfig'.rust_analyzer.setup({})
-require 'lspconfig'.custom_elements_ls.setup({})
-require 'lspconfig'.zls.setup({})
-require 'lspconfig'.astro.setup({})
 
+require 'mason-lspconfig'.setup({ handlers = handlers })
+
+-- global keymaps
 vim.keymap.set('n', 'go', vim.diagnostic.open_float)
 vim.keymap.set('n', 'gk', vim.diagnostic.goto_prev)
 vim.keymap.set('n', 'gj', vim.diagnostic.goto_next)
 vim.keymap.set('n', 'gq', vim.diagnostic.setloclist)
 
--- Use LspAttach autocommand to only map the following keys
--- after the language server attaches to the current buffer
+-- buffer local keymaps
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)
-    -- Buffer local mappings.
-    -- See `:help vim.lsp.*` for documentation on any of the below functions
     local opts = { buffer = ev.buf }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
@@ -58,6 +98,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
+-- fmt on save
 vim.api.nvim_create_autocmd('BufWritePre', {
   group = vim.api.nvim_create_augroup("UserLspConfig", {
     clear = false
@@ -66,8 +107,6 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     vim.lsp.buf.format { async = false }
   end
 })
-
-
 
 require('coq_3p') {
   { src = "figlet", short_name = "BIG", trigger = "!big" },
