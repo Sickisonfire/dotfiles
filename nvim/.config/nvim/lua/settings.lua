@@ -36,7 +36,7 @@ o.splitright = true
 g.netrw_banner = false
 g.do_filetype_lua = true
 
-o.conceallevel = 1 
+o.conceallevel = 1
 cmd('colorscheme darkforest')
 cmd('hi Normal guibg=NONE')
 cmd('hi cursorline guibg=NONE')

@@ -57,6 +57,7 @@ local handlers = {
           },
           workspace = {
             library = vim.api.nvim_get_runtime_file("", true),
+
           },
         },
       },
@@ -108,6 +109,6 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   end
 })
 
-require('coq_3p') {
-  { src = "figlet", short_name = "BIG", trigger = "!big" },
-}
+-- require('coq_3p') {
+--   { src = "figlet", short_name = "BIG", trigger = "!big" },
+-- }

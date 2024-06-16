@@ -2,12 +2,6 @@ local keymap = vim.keymap
 
 vim.g.mapleader = " "
 
---exit insert mode aka spam kj
--- bad habit
--- keymap.set('i', 'jj', '<ESC>')
--- keymap.set('i', 'jk', '<ESC>')
--- keymap.set('i', 'kj', '<ESC>')
-
 -- yank to eol
 keymap.set('n', 'Y', 'y$', { noremap = true })
 

@@ -1,74 +1,82 @@
-vim.cmd [[packadd packer.nvim]]
-
-require('packer').startup(function()
-  use 'wbthomason/packer.nvim'
-  use 'ellisonleao/gruvbox.nvim'
-  use 'nvim-treesitter/nvim-treesitter-context'
-
-  use {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-    "neovim/nvim-lspconfig",
-    run = ":MasonUpdate"
-  }
-
-  use 'NvChad/nvim-colorizer.lua'
-
-  use 'nvim-lua/plenary.nvim'
-  use 'nvim-lua/popup.nvim'
-  use 'nvim-telescope/telescope.nvim'
-
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use { "nvim-telescope/telescope-file-browser.nvim" }
-
-  -- LSP
-
-  use {
-    "ms-jpq/coq_nvim",
-    requires = {
-      { "ms-jpq/coq.artifacts", branch = "artifacts" },
-      {
-        "ms-jpq/coq.thirdparty",
-        branch = "3p",
-      },
-      {
-        "onsails/lspkind-nvim",
-        config = function()
-          require("lspkind").init()
-        end,
-      },
-      branch = "coq",
-    }
-  }
-  -- Debuging
-  use "mfussenegger/nvim-dap"
-  use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
-  use "theHamsta/nvim-dap-virtual-text"
-  use "nvim-telescope/telescope-dap.nvim"
-
-  -- debuggers
-  use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
-  use {
-    "microsoft/vscode-js-debug",
-    opt = true,
-    run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
-  }
-  use {
-    "folke/trouble.nvim",
-    requires = "nvim-tree/nvim-web-devicons",
-    config = function()
-      require("trouble").setup {}
-    end
-  }
-  use 'tpope/vim-fugitive'
-  use 'mbbill/undotree'
-  use 'tpope/vim-commentary'
-  use({
-    "iamcco/markdown-preview.nvim",
-    run = function() vim.fn["mkdp#util#install"]() end,
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
   })
-  use 'arcticicestudio/nord-vim'
+end
+vim.opt.rtp:prepend(lazypath)
 
-  use "windwp/nvim-ts-autotag"
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-end)
+
+require("lazy").setup({
+  {
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate'
+  },
+  'nvim-treesitter/nvim-treesitter-context',
+  {
+    'nvim-telescope/telescope.nvim',
+    branch = '0.1.x',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+  },
+  { 'nvim-telescope/telescope-fzf-native.nvim',  build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
+  { 'nvim-telescope/telescope-file-browser.nvim' },
+  {
+    'williamboman/mason.nvim',
+    build = 'MasonUpdate',
+    'williamboman/mason-lspconfig.nvim',
+    'neovim/nvim-lspconfig',
+    {
+      "iamcco/markdown-preview.nvim",
+      cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+      ft = { "markdown" },
+      build = function() vim.fn["mkdp#util#install"]() end,
+    }
+  },
+  "nvim-tree/nvim-web-devicons",
+  -- {
+  --   "folke/trouble.nvim",
+  --   opts = {},
+  --   cmd = 'Trouble'
+  -- },
+  'NvChad/nvim-colorizer.lua',
+})
+--  use {
+--    "ms-jpq/coq_nvim",
+--    requires = {
+--      { "ms-jpq/coq.artifacts", branch = "artifacts" },
+--      {
+--        "ms-jpq/coq.thirdparty",
+--        branch = "3p",
+--      },
+--      {
+--        "onsails/lspkind-nvim",
+--        config = function()
+--          require("lspkind").init()
+--        end,
+--      },
+--      branch = "coq",
+--    }
+--  }
+--  -- Debuging
+--  use "mfussenegger/nvim-dap"
+--  use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+--  use "theHamsta/nvim-dap-virtual-text"
+--  use "nvim-telescope/telescope-dap.nvim"
+--
+--  -- debuggers
+--  use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
+--  use {
+--    "microsoft/vscode-js-debug",
+--    opt = true,
+--    run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
+--  }
+--  use 'tpope/vim-fugitive'
+--  use 'mbbill/undotree'
+--
+--  use "windwp/nvim-ts-autotag"
+--end)
