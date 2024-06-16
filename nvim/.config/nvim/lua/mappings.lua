@@ -67,7 +67,7 @@ keymap.set('n', '<leader>ps',
 
 -- keymap.set('n', '<leader>tt', '<cmd>Lspsaga term_toggle<CR>')
 -- keymap.set('t', '<leader>tt', '<C-\\><C-n><cmd>Lspsaga term_toggle<CR>')
-keymap.set('t', '<leader>tt', '<C-\\><C-n><CR>')
+keymap.set('t', '<leader>[', '<C-\\><C-n><CR>')
 
 --"copy paste
 keymap.set('v', '<leader>c', '\"+y<CR>', { noremap = true })

@@ -118,7 +118,7 @@ set_hl("IncSearch", { fg = palette["black"], bg = palette["cyan"], bold = true }
 set_hl("MatchParen", { fg = palette["black"], bg = palette["orange"], bold = true })
 set_hl("ModeMsg", { fg = palette["green"], bg = NONE, bold = true })
 set_hl("NonText", { fg = palette["cyan"], bg = NONE })
-set_hl("Pmenu", { fg = palette["black"], bg = palette["cyan-dark"], bold = true })
+set_hl("Pmenu", { fg = palette["white"], bg = palette["black"], bold = true })
 set_hl("PmenuSbar", { bg = palette["cyan-dark"] })
 set_hl("PmenuThumb", { bg = palette["black"] })
 set_hl("PmenuSel", { fg = palette["white"], bg = palette["black"], bold = true })
