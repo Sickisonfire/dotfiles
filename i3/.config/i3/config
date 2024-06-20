@@ -24,7 +24,7 @@ font pango:JetBrains Mono Regular Nerd Font Complete Mono 10
 # load bg
 exec_always --no-startup-id feh --bg-fill $HOME/wallpapers/torii.jpg
 
-exec_always --no-startup-id redshift -c /home/marcel/.config/redshift.conf
+exec_always --no-startup-id gammastep -c $HOME/.config/gammastep/config.ini
 
 # use picom for transparency
 exec_always --no-startup-id picom  & --config $HOME/.config/picom/picom.conf
