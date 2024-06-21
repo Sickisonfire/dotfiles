@@ -44,24 +44,28 @@ require("lazy").setup({
   --   cmd = 'Trouble'
   -- },
   'NvChad/nvim-colorizer.lua',
+  {
+    "hrsh7th/nvim-cmp",
+    lazy = false,
+    priority = 100,
+    dependencies = {
+      {
+        "onsails/lspkind.nvim",
+        config = function()
+          require("lspkind").init()
+        end,
+      },
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-buffer",
+      { "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
+      "saadparwaiz1/cmp_luasnip",
+    },
+    config = function()
+      require "completion"
+    end,
+  },
 })
---  use {
---    "ms-jpq/coq_nvim",
---    requires = {
---      { "ms-jpq/coq.artifacts", branch = "artifacts" },
---      {
---        "ms-jpq/coq.thirdparty",
---        branch = "3p",
---      },
---      {
---        "onsails/lspkind-nvim",
---        config = function()
---          require("lspkind").init()
---        end,
---      },
---      branch = "coq",
---    }
---  }
 --  -- Debuging
 --  use "mfussenegger/nvim-dap"
 --  use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }

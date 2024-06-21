@@ -29,25 +29,17 @@ o.backup = false
 o.undodir = HOME .. "/.vim/undodir"
 o.undofile = true
 o.cursorline = true
-
+o.laststatus = 3
+o.scl = "yes"
 o.splitbelow = true
 o.splitright = true
-
 g.netrw_banner = false
+g.netrw_liststyle = 3
 g.do_filetype_lua = true
-
 o.conceallevel = 1
 cmd('colorscheme darkforest')
 cmd('hi Normal guibg=NONE')
 cmd('hi cursorline guibg=NONE')
 cmd('hi SignColumn guibg=none')
-cmd('set laststatus=3')
-cmd('set scl=yes')
-
 --- lsp shader glsl
 cmd('au BufEnter *frag set filetype=glsl')
-
-g.coq_settings = {
-  auto_start = 'shut-up',
-  ["display.pum.fast_close"] = false,
-}

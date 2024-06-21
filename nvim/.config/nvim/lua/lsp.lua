@@ -1,12 +1,15 @@
 require 'mason'.setup()
 
+local capabilities = require 'cmp_nvim_lsp'.default_capabilities()
 local handlers = {
   -- default/catch all
   function(server_name)
-    require("lspconfig")[server_name].setup {}
+    require("lspconfig")[server_name].setup {
+      vim.tbl_deep_extend("force", {}, capabilities, {}
+      ) }
   end,
   ["eslint"] = function()
-    require 'lspconfig'.eslint.setup({
+    require 'lspconfig'.eslint.setup(vim.tbl_deep_extend("force", {}, capabilities, {
       on_attach = function(_, bufnr)
         vim.api.nvim_create_autocmd("BufWritePre", {
           buffer = bufnr,
@@ -41,10 +44,10 @@ local handlers = {
           { ["rule"] = "*semi",     ["severity"] = "off" }
         },
       }
-    })
+    }))
   end,
   ["lua_ls"] = function()
-    require 'lspconfig'.lua_ls.setup({
+    require 'lspconfig'.lua_ls.setup(vim.tbl_deep_extend("force", {}, capabilities, {
       settings = {
         Lua = {
           runtime = {
@@ -61,7 +64,7 @@ local handlers = {
           },
         },
       },
-    })
+    }))
   end
 }
 
