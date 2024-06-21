@@ -25,6 +25,8 @@ export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:/usr/bin/nvim"
 export PATH="$PATH:$HOME/.zig/bin"
 export PATH="$PATH:$HOME/.fly/bin"
+# User scripts
+export PATH="$PATH:$HOME/.local/bin"
 
 #Theme
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -50,7 +52,7 @@ export FZF_DEFAULT_COMMAND='fd --type f'
 export FZF_DEFAULT_OPTS="--layout=reverse --inline-info --height=80%"
 
 #GO PATH
-export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
+# export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -100,3 +102,14 @@ alias pasters=paste
 
 # opam configuration
 [[ ! -r /home/marcel/.opam/opam-init/init.zsh ]] || source /home/marcel/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+export WASMTIME_HOME="$HOME/.wasmtime"
+
+export PATH="$WASMTIME_HOME/bin:$PATH"
+# pnpm
+export PNPM_HOME="/home/marcel/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
