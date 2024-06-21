@@ -31,6 +31,7 @@ o.undofile = true
 o.cursorline = true
 o.laststatus = 3
 o.scl = "yes"
+o.pumheight = 15
 o.splitbelow = true
 o.splitright = true
 g.netrw_banner = false
