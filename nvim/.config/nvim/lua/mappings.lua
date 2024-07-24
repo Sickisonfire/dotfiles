@@ -62,6 +62,10 @@ keymap.set('n', '<leader>ps',
 -- keymap.set('n', '<leader>tt', '<cmd>Lspsaga term_toggle<CR>')
 -- keymap.set('t', '<leader>tt', '<C-\\><C-n><cmd>Lspsaga term_toggle<CR>')
 keymap.set('t', '<leader>[', '<C-\\><C-n><CR>')
+keymap.set('t', '<leader>h', '<C-\\><C-n><cmd>wincmd h<CR>')
+keymap.set('t', '<leader>l', '<C-\\><C-n><cmd>wincmd l<CR>')
+keymap.set('t', '<leader>j', '<C-\\><C-n><cmd>wincmd j<CR>')
+keymap.set('t', '<leader>k', '<C-\\><C-n><cmd>wincmd k<CR>')
 
 --"copy paste
 keymap.set('v', '<leader>c', '\"+y<CR>', { noremap = true })
