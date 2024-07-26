@@ -53,7 +53,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 exec --no-startup-id floorp 
 assign [class="(?i)floorp"] 2
 
-exec --no-startup-id i3-msg 'workspace 1; exec kitty'
+exec --no-startup-id i3-msg 'workspace 1; exec kitty tmux'
 exec --no-startup-id i3-msg 'workspace 9; exec kitty bashtop; workspace 1'
 exec --no-startup-id i3-msg 'workspace 9; exec kitty nvtop; workspace 1'
 
@@ -212,9 +212,9 @@ bindsym $mod+r mode "resize"
 
 # colors
 ## class                 border  backgr. text    indicator child_border
-client.focused          #6e7f9e #6e7f9e #eeffff #2e9ef4   #285577
+client.focused          #B0CB9A #B0CB9A #0E0F0E #81F393   #6B895D
 #client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #181a20 #181a20 #424a5d #292d2e   #222222
+client.unfocused        #2E3426 #2E3426 #5F6A5D #292d2e   #222222
 #client.urgent           #2f343a #900000 #ffffff #900000   #900000
 #client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
