@@ -75,13 +75,14 @@ require 'mason-lspconfig'.setup({ handlers = handlers })
 vim.keymap.set('n', 'go', vim.diagnostic.open_float)
 vim.keymap.set('n', 'gk', vim.diagnostic.goto_prev)
 vim.keymap.set('n', 'gj', vim.diagnostic.goto_next)
-vim.keymap.set('n', 'gq', vim.diagnostic.setloclist)
+vim.keymap.set('n', 'gq', vim.diagnostic.setqflist)
 
 -- buffer local keymaps
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)
     local opts = { buffer = ev.buf }
+
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
@@ -96,12 +97,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- vim.keymap.set('n', 'gr', vim.lsp.buf.rename, opts)
     vim.keymap.set({ 'n', 'v' }, 'do', vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', 'gh', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', '<leader>vt', '<cmd>VirtualTextToggle<CR>', opts)
     vim.keymap.set('n', '<leader>f', function()
       vim.lsp.buf.format { async = true }
     end, opts)
   end,
 })
-
 -- fmt on save
 vim.api.nvim_create_autocmd('BufWritePre', {
   group = vim.api.nvim_create_augroup("UserLspConfig", {
@@ -111,7 +112,9 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     vim.lsp.buf.format { async = false }
   end
 })
+local function toggle_virtual_text()
+  local prev = vim.diagnostic.config().virtual_text
+  vim.diagnostic.config({ virtual_text = not prev })
+end
 
--- require('coq_3p') {
---   { src = "figlet", short_name = "BIG", trigger = "!big" },
--- }
+vim.api.nvim_create_user_command("VirtualTextToggle", toggle_virtual_text, {})
