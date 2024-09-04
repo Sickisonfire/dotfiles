@@ -28,8 +28,8 @@ keymap.set('v', 'K', ':m \'>-2<CR>gv=gv', { noremap = true })
 --keymap.set('n', '<leader>k', '<cmd>m .-2<CR>==', {noremap = true})
 --keymap.set('n', '<leader>j', '<cmd>m .+1<CR>==', {noremap = true})
 
---"copy to clipboard
-keymap.set('v', '<C-c>', '\"+y', { noremap = true })
+--toggle Context
+keymap.set('n', '<C-c>', '<cmd>TSContextToggle<CR>', { noremap = true })
 
 -- qflist next/prev
 keymap.set('n', 'gn', '<cmd>cn<CR>', { noremap = true })
