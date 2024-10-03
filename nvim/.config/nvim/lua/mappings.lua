@@ -55,8 +55,8 @@ keymap.set('n', '<leader>ce', '<cmd>Telescope file_browser path=%:p:h<CR>')
 keymap.set('n', '<leader><space>', '<cmd>Telescope buffers<CR>')
 keymap.set('n', '<leader>?', '<cmd>Telescope oldfiles<CR>')
 keymap.set('n', '<C-p>', '<cmd>Telescope git_files<CR>')
-keymap.set('n', '<leader>ps',
-  function() require('telescope.builtin').grep_string({ search = vim.fn.input("Grep for > ") }) end)
+keymap.set('n', '<leader>pg', '<cmd>Telescope live_grep<CR>')
+keymap.set('n', '<leader>ps', '<cmd>Telescope grep_string<CR>')
 
 
 -- keymap.set('n', '<leader>tt', '<cmd>Lspsaga term_toggle<CR>')
