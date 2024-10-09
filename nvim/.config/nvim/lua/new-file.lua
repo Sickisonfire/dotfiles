@@ -1,7 +1,6 @@
 local utils = require("utils")
 
 local create_new_file = function(args)
-
   -- TODO
   -- implement compnent flag to specificly generate components
   -- could be called with :NewFile "component"
@@ -20,13 +19,6 @@ local create_new_file = function(args)
   else
     print('no file entered')
   end
-
 end
 
 vim.api.nvim_create_user_command('NewFile', create_new_file, {})
-
--- test command
-vim.api.nvim_create_user_command('Tt', function()
-  print("hello world")
-end,
-  {})
