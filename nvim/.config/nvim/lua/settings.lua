@@ -40,7 +40,7 @@ g.do_filetype_lua = true
 o.conceallevel = 1
 cmd('colorscheme darkforest')
 cmd('hi Normal guibg=NONE')
-cmd('hi cursorline guibg=NONE')
+-- cmd('hi cursorline guibg=NONE')
 cmd('hi SignColumn guibg=none')
 --- lsp shader glsl
 cmd('au BufEnter *frag set filetype=glsl')
