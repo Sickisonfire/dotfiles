@@ -58,9 +58,6 @@ keymap.set('n', '<C-p>', '<cmd>Telescope git_files<CR>')
 keymap.set('n', '<leader>pg', '<cmd>Telescope live_grep<CR>')
 keymap.set('n', '<leader>ps', '<cmd>Telescope grep_string<CR>')
 
-
--- keymap.set('n', '<leader>tt', '<cmd>Lspsaga term_toggle<CR>')
--- keymap.set('t', '<leader>tt', '<C-\\><C-n><cmd>Lspsaga term_toggle<CR>')
 keymap.set('t', '<leader>[', '<C-\\><C-n><CR>')
 keymap.set('t', '<leader>h', '<C-\\><C-n><cmd>wincmd h<CR>')
 keymap.set('t', '<leader>l', '<C-\\><C-n><cmd>wincmd l<CR>')
