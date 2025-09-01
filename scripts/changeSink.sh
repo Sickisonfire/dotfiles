@@ -1,12 +1,29 @@
-#!/bin/sh
+#!/bin/bash
 
-CURRENT_SINK=`pacmd list-sinks | grep '*' | tr -d '* index: '`
-echo $CURRENT_SINK
+current_sink=`pactl info | grep "Default Sink:" | awk '{print $3}'`
+sinks=($(pactl list short sinks | awk '{print $2}'))
+current_sink_idx=0
 
-if [ "$CURRENT_SINK" = "0" ]; then
-    `pacmd set-default-sink 1`
-fi
+get_def_sink_index() {
+  local idx=0
+  for s in "${sinks[@]}"; do
+    if [[ $current_sink == $s ]]; then
+      current_sink_idx=$idx
+    fi
+    ((idx++))
+  done
+}
 
-if [ "$CURRENT_SINK" = "1" ]; then
-    `pacmd set-default-sink 0`
-fi
+cicle_def_sink() {
+  local last_sink=$((${#sinks[@]}- 1))
+
+  if [[ $current_sink_idx -eq $last_sink ]]; then
+    $(pactl set-default-sink "${sinks[0]}")
+  else
+    ((current_sink_idx++))
+    $(pactl set-default-sink "${sinks[$current_sink_idx]}")
+  fi
+}
+
+get_def_sink_index
+cicle_def_sink
