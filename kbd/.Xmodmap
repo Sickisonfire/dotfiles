@@ -5,3 +5,4 @@ keysym Home = Caps_Lock
 add Lock = Caps_Lock
 
 keycode 94 = grave asciitilde grave asciitilde
+keycode 49 = Print Print
