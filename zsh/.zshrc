@@ -120,3 +120,7 @@ esac
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+export IDF="$HOME/Workspace/esp/esp-idf/export.sh"
+
+. "/home/marcel/.deno/env"
