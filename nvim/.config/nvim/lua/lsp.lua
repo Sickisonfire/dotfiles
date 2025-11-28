@@ -73,8 +73,8 @@ require 'mason-lspconfig'.setup({ handlers = handlers })
 
 -- global keymaps
 vim.keymap.set('n', 'go', vim.diagnostic.open_float)
-vim.keymap.set('n', 'gk', vim.diagnostic.goto_prev)
-vim.keymap.set('n', 'gj', vim.diagnostic.goto_next)
+vim.keymap.set('n', 'gk', vim.diagnostic.get_prev)
+vim.keymap.set('n', 'gj', vim.diagnostic.get_next)
 vim.keymap.set('n', 'gq', vim.diagnostic.setqflist)
 
 -- buffer local keymaps
@@ -87,9 +87,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-    -- vim.keymap.set('n', '<leader>gnw', vim.lsp.buf.add_workspace_folder, opts)
-    -- vim.keymap.set('n', '<leader>gwr', vim.lsp.buf.remove_workspace_folder, opts)
+    vim.keymap.set({ 'n', 'i' }, '<C-k>', vim.lsp.buf.signature_help, opts)
     vim.keymap.set('n', '<leader>gwl', function()
       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end, opts)

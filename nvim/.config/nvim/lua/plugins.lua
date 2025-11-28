@@ -58,13 +58,19 @@ require("lazy").setup({
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-buffer",
-      { "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
+      {
+        "L3MON4D3/LuaSnip",
+        version = "v2.*",
+        build = "make install_jsregexp"
+      },
       "saadparwaiz1/cmp_luasnip",
     },
     config = function()
       require "completion"
     end,
   },
+
+  { 'akinsho/toggleterm.nvim', version = "*", config = true }
 })
 --  -- Debuging
 --  use "mfussenegger/nvim-dap"

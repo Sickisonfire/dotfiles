@@ -35,7 +35,6 @@ keymap.set('n', '<C-c>', '<cmd>TSContextToggle<CR>', { noremap = true })
 keymap.set('n', 'gn', '<cmd>cn<CR>', { noremap = true })
 keymap.set('n', 'gN', '<cmd>cN<CR>', { noremap = true })
 
-
 --"replace word under cursor ( . to do it again)
 keymap.set('n', 'cn', '*``cgn', { noremap = true })
 keymap.set('n', 'cN', '*``cgN', { noremap = true })
@@ -43,7 +42,6 @@ keymap.set('n', 'cN', '*``cgN', { noremap = true })
 keymap.set('n', '<leader>nf', '<cmd>NewFile<CR>', { noremap = true })
 
 keymap.set('n', '<leader>a', 'ggVG<CR>', { noremap = true })
-keymap.set('n', '<leader>u', '<cmd>UndotreeToggle<CR>')
 --keymap.set('n', '<leader>e', '<cmd>Lexplore! 20<CR>')
 keymap.set('n', '<leader>w', '<cmd>w<CR>', { noremap = true })
 keymap.set('n', '<leader>x', '<cmd>x<CR>', { noremap = true })
@@ -58,16 +56,9 @@ keymap.set('n', '<C-p>', '<cmd>Telescope git_files<CR>')
 keymap.set('n', '<leader>pg', '<cmd>Telescope live_grep<CR>')
 keymap.set('n', '<leader>ps', '<cmd>Telescope grep_string<CR>')
 
-keymap.set('t', '<leader>[', '<C-\\><C-n><CR>')
-keymap.set('t', '<leader>h', '<C-\\><C-n><cmd>wincmd h<CR>')
-keymap.set('t', '<leader>l', '<C-\\><C-n><cmd>wincmd l<CR>')
-keymap.set('t', '<leader>j', '<C-\\><C-n><cmd>wincmd j<CR>')
-keymap.set('t', '<leader>k', '<C-\\><C-n><cmd>wincmd k<CR>')
-
 --"copy paste
 keymap.set('v', '<leader>c', '\"+y<CR>', { noremap = true })
 keymap.set('n', '<leader>v', '\"+p<CR>', { noremap = true })
-
 
 --    " window management
 keymap.set('n', '<leader>tn', '<cmd>tabnext<CR>')
@@ -90,14 +81,24 @@ keymap.set('n', '<leader>se', '<cmd>tabnew $MYVIMRC<CR>')
 
 keymap.set('n', '<leader>ok', 'r<C-K>OK<CR>', { noremap = true })
 
+-- Term
+keymap.set('t', '<leader>[', '<C-\\><C-n><CR>')
+keymap.set('t', '<leader>h', '<C-\\><C-n><cmd>wincmd h<CR>')
+keymap.set('t', '<leader>l', '<C-\\><C-n><cmd>wincmd l<CR>')
+keymap.set('t', '<leader>j', '<C-\\><C-n><cmd>wincmd j<CR>')
+keymap.set('t', '<leader>k', '<C-\\><C-n><cmd>wincmd k<CR>')
+keymap.set('n', '<leader>tt', '<cmd>ToggleTerm<CR>')
+keymap.set('n', '<leader>mr', '<cmd>TermExec cmd="zig build run"<CR>')
+keymap.set('n', '<leader>mr', '<cmd>TermExec cmd="zig build run"<CR>')
+
 -- debugging DAP
-keymap.set('n', '<leader>7', function() require 'dap'.continue() end)
-keymap.set('n', '<leader>8', function() require 'dap'.step_over() end)
-keymap.set('n', '<leader>9', function() require 'dap'.step_into() end)
-keymap.set('n', '<leader>0', function() require 'dap'.step_out() end)
-keymap.set('n', '<leader>b', function() require 'dap'.toggle_breakpoint() end)
-keymap.set('n', '<leader>B', function() require 'dap'.set_breakpoint(vim.fn.input('Breakpoint Condition: ')) end)
-keymap.set('n', '<leader>dlp', function() require 'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point Message: ')) end)
-keymap.set('n', '<leader>dr', function() require 'dap'.repl.toggle() end)
-keymap.set('n', '<leader>dcb', function() require 'dap'.clear_breakpoints() end)
-keymap.set('n', '<leader>dui', function() require 'dapui'.toggle() end)
+-- keymap.set('n', '<leader>7', function() require 'dap'.continue() end)
+-- keymap.set('n', '<leader>8', function() require 'dap'.step_over() end)
+-- keymap.set('n', '<leader>9', function() require 'dap'.step_into() end)
+-- keymap.set('n', '<leader>0', function() require 'dap'.step_out() end)
+-- keymap.set('n', '<leader>b', function() require 'dap'.toggle_breakpoint() end)
+-- keymap.set('n', '<leader>B', function() require 'dap'.set_breakpoint(vim.fn.input('Breakpoint Condition: ')) end)
+-- keymap.set('n', '<leader>dlp', function() require 'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point Message: ')) end)
+-- keymap.set('n', '<leader>dr', function() require 'dap'.repl.toggle() end)
+-- keymap.set('n', '<leader>dcb', function() require 'dap'.clear_breakpoints() end)
+-- keymap.set('n', '<leader>dui', function() require 'dapui'.toggle() end)
