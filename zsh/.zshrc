@@ -23,7 +23,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:/usr/bin/nvim"
-export PATH="$PATH:$HOME/.zig/bin"
+export PATH="$PATH:$HOME/.zig/15"
 export PATH="$PATH:$HOME/.fly/bin"
 # User scripts
 export PATH="$PATH:$HOME/.local/bin"
@@ -124,3 +124,4 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export IDF="$HOME/Workspace/esp/esp-idf/export.sh"
 
 . "/home/marcel/.deno/env"
+
