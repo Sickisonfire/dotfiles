@@ -1,0 +1,397 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE CARLA-PROJECT>
+<CARLA-PROJECT VERSION='2.5'>
+ <EngineSettings>
+  <ForceStereo>false</ForceStereo>
+  <PreferPluginBridges>false</PreferPluginBridges>
+  <PreferUiBridges>true</PreferUiBridges>
+  <UIsAlwaysOnTop>false</UIsAlwaysOnTop>
+  <MaxParameters>200</MaxParameters>
+  <UIBridgesTimeout>4000</UIBridgesTimeout>
+ </EngineSettings>
+
+ <Transport>
+  <BeatsPerMinute>120</BeatsPerMinute>
+ </Transport>
+
+ <!-- ZamGEQ31 -->
+ <Plugin>
+  <Info>
+   <Type>LADSPA</Type>
+   <Name>ZamGEQ31</Name>
+   <Binary>/usr/lib/ladspa/ZamGEQ31-ladspa.so</Binary>
+   <Label>ZamGEQ31</Label>
+   <UniqueID>1514615601</UniqueID>
+  </Info>
+
+  <Data>
+   <Active>Yes</Active>
+   <ControlChannel>1</ControlChannel>
+   <Options>0x0</Options>
+
+   <Parameter>
+    <Index>0</Index>
+    <Name>Master Gain</Name>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>1</Index>
+    <Name>32Hz</Name>
+    <Value>-12</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>2</Index>
+    <Name>40Hz</Name>
+    <Value>-12</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>3</Index>
+    <Name>50Hz</Name>
+    <Value>-2.76923084259033</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>4</Index>
+    <Name>63Hz</Name>
+    <Value>-2.88000011444092</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>5</Index>
+    <Name>79Hz</Name>
+    <Value>-1.59440565109253</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>6</Index>
+    <Name>100Hz</Name>
+    <Value>-0.251748263835907</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>7</Index>
+    <Name>126Hz</Name>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>8</Index>
+    <Name>158Hz</Name>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>9</Index>
+    <Name>200Hz</Name>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>10</Index>
+    <Name>251Hz</Name>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>11</Index>
+    <Name>316Hz</Name>
+    <Value>-1.93006992340088</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>12</Index>
+    <Name>398Hz</Name>
+    <Value>-2.4335663318634</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>13</Index>
+    <Name>501Hz</Name>
+    <Value>-4.32000017166138</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>14</Index>
+    <Name>631Hz</Name>
+    <Value>-3.12000012397766</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>15</Index>
+    <Name>794Hz</Name>
+    <Value>-1.68000018596649</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>16</Index>
+    <Name>999Hz</Name>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>17</Index>
+    <Name>1257Hz</Name>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>18</Index>
+    <Name>1584Hz</Name>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>19</Index>
+    <Name>1997Hz</Name>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>20</Index>
+    <Name>2514Hz</Name>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>21</Index>
+    <Name>3165Hz</Name>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>22</Index>
+    <Name>3986Hz</Name>
+    <Value>-0.251748263835907</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>23</Index>
+    <Name>5017Hz</Name>
+    <Value>-0.480000257492065</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>24</Index>
+    <Name>6318Hz</Name>
+    <Value>-0.960000276565552</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>25</Index>
+    <Name>7963Hz</Name>
+    <Value>-0.755244731903076</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>26</Index>
+    <Name>10032Hz</Name>
+    <Value>-5.28000020980835</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>27</Index>
+    <Name>12662Hz</Name>
+    <Value>-12</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>28</Index>
+    <Name>16081Hz</Name>
+    <Value>-12</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>29</Index>
+    <Name>20801Hz</Name>
+    <Value>-12</Value>
+   </Parameter>
+  </Data>
+ </Plugin>
+
+ <!-- ZamGate -->
+ <Plugin>
+  <Info>
+   <Type>LADSPA</Type>
+   <Name>ZamGate</Name>
+   <Binary>/usr/lib/ladspa/ZamGate-ladspa.so</Binary>
+   <Label>ZamGate</Label>
+   <UniqueID>1514619220</UniqueID>
+  </Info>
+
+  <Data>
+   <Active>Yes</Active>
+   <ControlChannel>1</ControlChannel>
+   <Options>0x0</Options>
+
+   <Parameter>
+    <Index>0</Index>
+    <Name>Attack</Name>
+    <Value>120.147666931152</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>1</Index>
+    <Name>Release</Name>
+    <Value>136.273483276367</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>2</Index>
+    <Name>Threshold</Name>
+    <Value>-41.4000015258789</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>3</Index>
+    <Name>Makeup</Name>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>4</Index>
+    <Name>Sidechain</Name>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>5</Index>
+    <Name>Max gate close</Name>
+    <Value>-50</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>6</Index>
+    <Name>Mode open/shut</Name>
+    <Value>0</Value>
+   </Parameter>
+  </Data>
+ </Plugin>
+
+ <!-- ZamComp -->
+ <Plugin>
+  <Info>
+   <Type>LADSPA</Type>
+   <Name>ZamComp</Name>
+   <Binary>/usr/lib/ladspa/ZamComp-ladspa.so</Binary>
+   <Label>ZamComp</Label>
+   <UniqueID>1514360144</UniqueID>
+  </Info>
+
+  <Data>
+   <Active>Yes</Active>
+   <ControlChannel>1</ControlChannel>
+   <Options>0x0</Options>
+
+   <Parameter>
+    <Index>0</Index>
+    <Name>Attack</Name>
+    <Value>24.7548084259033</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>1</Index>
+    <Name>Release</Name>
+    <Value>125.75</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>2</Index>
+    <Name>Knee</Name>
+    <Value>2.3199999332428</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>3</Index>
+    <Name>Ratio</Name>
+    <Value>4.23000001907349</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>4</Index>
+    <Name>Threshold</Name>
+    <Value>-36.4102554321289</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>5</Index>
+    <Name>Makeup</Name>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>6</Index>
+    <Name>Slew</Name>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>7</Index>
+    <Name>Sidechain</Name>
+    <Value>0</Value>
+   </Parameter>
+  </Data>
+ </Plugin>
+
+ <ExternalPatchbay>
+  <Connection>
+   <Source>Komplete Audio 6 Analog Stereo Input 1/2:capture_FL</Source>
+   <Target>ZamGEQ31:Audio Input 1</Target>
+  </Connection>
+  <Connection>
+   <Source>ZamGEQ31:Audio Output 1</Source>
+   <Target>ZamGate:Audio Input 1</Target>
+  </Connection>
+  <Connection>
+   <Source>Floorp:output_FL</Source>
+   <Target>Komplete Audio 6 Analog Stereo 1/2:playback_FL</Target>
+  </Connection>
+  <Connection>
+   <Source>Floorp:output_FR</Source>
+   <Target>Komplete Audio 6 Analog Stereo 1/2:playback_FR</Target>
+  </Connection>
+  <Connection>
+   <Source>ZamComp:Audio Output 1</Source>
+   <Target>G430 Surround Sound Gaming Headset Analog Stereo:playback_FL</Target>
+  </Connection>
+  <Connection>
+   <Source>ZamComp:Audio Output 1</Source>
+   <Target>G430 Surround Sound Gaming Headset Analog Stereo:playback_FR</Target>
+  </Connection>
+  <Connection>
+   <Source>ZamGate:Audio Output 1</Source>
+   <Target>ZamComp:Audio Input 1</Target>
+  </Connection>
+  <Positions>
+   <Position x1="1362" y1="1080" x2="2099" y2="1274">
+    <Name>Komplete Audio 6 Analog Stereo Input 1/2</Name>
+   </Position>
+   <Position x1="1374" y1="1365" x2="2119" y2="1348">
+    <Name>G430 Surround Sound Gaming Headset Mono</Name>
+   </Position>
+   <Position x1="1416" y1="1499" x2="2447" y2="1283">
+    <Name>G430 Surround Sound Gaming Headset Analog Stereo</Name>
+   </Position>
+   <Position x1="1579" y1="1655" x2="2510" y2="1082">
+    <Name>Komplete Audio 6 Analog Stereo 1/2</Name>
+   </Position>
+   <Position x1="1340" y1="1634" x2="2037" y2="1514">
+    <Name>Midi-Bridge</Name>
+   </Position>
+   <Position x1="1667" y1="1062" pluginId="0">
+    <Name>ZamGEQ31</Name>
+   </Position>
+   <Position x1="1893" y1="1132" pluginId="1">
+    <Name>ZamGate</Name>
+   </Position>
+   <Position x1="2133" y1="1240" pluginId="2">
+    <Name>ZamComp</Name>
+   </Position>
+   <Position x1="1529" y1="1272">
+    <Name>Floorp</Name>
+   </Position>
+  </Positions>
+ </ExternalPatchbay>
+</CARLA-PROJECT>
