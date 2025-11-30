@@ -1,80 +1,66 @@
-require 'mason'.setup()
-
 local capabilities = require 'cmp_nvim_lsp'.default_capabilities()
-local handlers = {
-  -- default/catch all
-  function(server_name)
-    require("lspconfig")[server_name].setup {
-      vim.tbl_deep_extend("force", {}, capabilities, {}
-      ) }
-  end,
-  ["eslint"] = function()
-    require 'lspconfig'.eslint.setup(vim.tbl_deep_extend("force", {}, capabilities, {
-      on_attach = function(_, bufnr)
-        vim.api.nvim_create_autocmd("BufWritePre", {
-          buffer = bufnr,
-          command = "EslintFixAll",
-        })
-      end,
-      filetypes = {
-        "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact",
-        "vue",
-        "html",
-        "markdown",
-        "json",
-        "jsonc",
-        "yaml",
-        "astro"
-      },
-      settings = {
-        format = true,
-        experimental = { useFlatConfig = true },
-        rulesCustomizations = {
-          { ["rule"] = "style/*",   ["severity"] = "off" },
-          { ["rule"] = "*-indent",  ["severity"] = "off" },
-          { ["rule"] = "*-spacing", ["severity"] = "off" },
-          { ["rule"] = "*-spaces",  ["severity"] = "off" },
-          { ["rule"] = "*-order",   ["severity"] = "off" },
-          { ["rule"] = "*-dangle",  ["severity"] = "off" },
-          { ["rule"] = "*-newline", ["severity"] = "off" },
-          { ["rule"] = "*quotes",   ["severity"] = "off" },
-          { ["rule"] = "*semi",     ["severity"] = "off" }
-        },
-      }
-    }))
-  end,
-  ["lua_ls"] = function()
-    require 'lspconfig'.lua_ls.setup(vim.tbl_deep_extend("force", {}, capabilities, {
-      settings = {
-        Lua = {
-          runtime = {
-            version = 'LuaJIT',
-          },
-          diagnostics = {
-            globals = {
-              'vim',
-            },
-          },
-          workspace = {
-            library = vim.api.nvim_get_runtime_file("", true),
 
-          },
+vim.lsp.config('*', { capabilities = capabilities, })
+
+vim.lsp.config('eslint', {
+  on_attach = function(_, bufnr)
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      command = "EslintFixAll",
+    })
+  end,
+  filetypes = {
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "html",
+    "markdown",
+    "json",
+    "jsonc",
+    "yaml",
+    "astro"
+  },
+  settings = {
+    format = true,
+    experimental = { useFlatConfig = true },
+    rulesCustomizations = {
+      { ["rule"] = "style/*",   ["severity"] = "off" },
+      { ["rule"] = "*-indent",  ["severity"] = "off" },
+      { ["rule"] = "*-spacing", ["severity"] = "off" },
+      { ["rule"] = "*-spaces",  ["severity"] = "off" },
+      { ["rule"] = "*-order",   ["severity"] = "off" },
+      { ["rule"] = "*-dangle",  ["severity"] = "off" },
+      { ["rule"] = "*-newline", ["severity"] = "off" },
+      { ["rule"] = "*quotes",   ["severity"] = "off" },
+      { ["rule"] = "*semi",     ["severity"] = "off" }
+    },
+  }
+})
+
+vim.lsp.config('lua_ls', {
+  settings = {
+    Lua = {
+      runtime = {
+        version = 'LuaJIT',
+      },
+      diagnostics = {
+        globals = {
+          'vim',
         },
       },
-    }))
-  end
-}
-
-
-require 'mason-lspconfig'.setup({ handlers = handlers })
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+    },
+  },
+})
 
 -- global keymaps
 vim.keymap.set('n', 'go', vim.diagnostic.open_float)
-vim.keymap.set('n', 'gk', vim.diagnostic.get_prev)
-vim.keymap.set('n', 'gj', vim.diagnostic.get_next)
+vim.keymap.set('n', 'gk', function() vim.diagnostic.jump({ count = -1, float = true }) end)
+vim.keymap.set('n', 'gj', function() vim.diagnostic.jump({ count = 1, float = true }) end)
 vim.keymap.set('n', 'gq', vim.diagnostic.setqflist)
 
 -- buffer local keymaps
@@ -88,6 +74,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
     vim.keymap.set({ 'n', 'i' }, '<C-k>', vim.lsp.buf.signature_help, opts)
+    -- vim.keymap.set('n', '<leader>gnw', vim.lsp.buf.add_workspace_folder, opts)
+    -- vim.keymap.set('n', '<leader>gwr', vim.lsp.buf.remove_workspace_folder, opts)
     vim.keymap.set('n', '<leader>gwl', function()
       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end, opts)

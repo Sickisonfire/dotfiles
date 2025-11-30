@@ -14,28 +14,36 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   {
-    'nvim-treesitter/nvim-treesitter',
-    build = ':TSUpdate'
+    "nvim-treesitter/nvim-treesitter",
+    branch = 'master',
+    lazy = false,
+    build = ":TSUpdate",
   },
   'nvim-treesitter/nvim-treesitter-context',
   {
     'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
+    tag = 'v0.2.0',
     dependencies = { 'nvim-lua/plenary.nvim' },
   },
   { 'nvim-telescope/telescope-fzf-native.nvim',  build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
   { 'nvim-telescope/telescope-file-browser.nvim' },
+
+  { 'williamboman/mason.nvim',                   opts = {} },
   {
-    'williamboman/mason.nvim',
-    build = 'MasonUpdate',
-    'williamboman/mason-lspconfig.nvim',
-    'neovim/nvim-lspconfig',
-    {
-      "iamcco/markdown-preview.nvim",
-      cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-      ft = { "markdown" },
-      build = function() vim.fn["mkdp#util#install"]() end,
-    }
+    -- possible to remove soon. only manages the autostart of lsp servers. can
+    -- probably easily be replaced with vim.lsp.enable
+    "mason-org/mason-lspconfig.nvim",
+    opts = {},
+    dependencies = {
+      { "mason-org/mason.nvim", opts = {} },
+      "neovim/nvim-lspconfig",
+    },
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function() vim.fn["mkdp#util#install"]() end,
   },
   "nvim-tree/nvim-web-devicons",
   -- {
