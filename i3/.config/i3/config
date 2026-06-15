@@ -244,9 +244,9 @@ client.unfocused        #2E3426 #2E3426 #5F6A5D #292d2e   #222222
 for_window [class=".*"] border pixel 0
 
 # gaps inner|outer|horizontal|vertical|top|right|bottom|left current|all set|plus|minus|toggle <px>
-gaps horizontal 5
-gaps top 40
-gaps bottom 5
+gaps outer 0
+gaps inner 5
+gaps top 35
 
 # Only enable gaps on a workspace when there is at least one container
 #smart_gaps on
