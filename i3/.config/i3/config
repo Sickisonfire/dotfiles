@@ -17,9 +17,10 @@ set $mod Mod4
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 10
+# font pango:DejaVu Sans Mono 12
 
-font pango:JetBrains Mono Regular Nerd Font Complete Mono 10 
+# font pango:JetBrains Mono Regular Nerd Font Complete Mono 12 
+font pango:Maple Mono NF CN SemiBold 12
 
 # load bg
 exec_always --no-startup-id feh --bg-fill $HOME/wallpapers/torii.jpg
@@ -214,11 +215,12 @@ bindsym $mod+r mode "resize"
 
 # colors
 ## class                 border  backgr. text    indicator child_border
-client.focused          #B0CB9A #B0CB9A #0E0F0E #81F393   #6B895D
+client.focused          #6b895d #6b895d #eeffff #81F393   #6B895D
 #client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #2E3426 #2E3426 #5F6A5D #292d2e   #222222
+client.unfocused        #37472f #37472f #7b8c71 #292d2e   #37472f
 #client.urgent           #2f343a #900000 #ffffff #900000   #900000
 #client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+title_align center
 
 # using plybar no need for that
 #bar {
